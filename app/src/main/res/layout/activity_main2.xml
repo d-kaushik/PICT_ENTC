@@ -53,6 +53,7 @@
             />
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -102,18 +103,10 @@
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:text="Admin login"
-            android:textColor="@drawable/kaushik"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+
+      
+
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

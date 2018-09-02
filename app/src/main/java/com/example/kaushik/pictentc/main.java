@@ -1,7 +1,9 @@
 package com.example.kaushik.pictentc;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class main extends AppCompatActivity {
 
@@ -9,5 +11,23 @@ public class main extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+    }
+    public void onClick(View view)
+    {
+        if(view.getId()==R.id.but_se)
+        {
+            Intent intent=new Intent(this,se.class);
+            startActivity(intent);
+        }
+        else if(view.getId()==R.id.but_te)
+        {
+            Intent intent=new Intent(this,te.class);
+            startActivity(intent);
+        }
+        else if(view.getId()==R.id.but_be)
+        {
+            Intent intent=new Intent(this,be.class);
+            startActivity(intent);
+        }
     }
 }
