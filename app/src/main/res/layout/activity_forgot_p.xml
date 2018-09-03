@@ -76,7 +76,6 @@
                 android:layout_marginRight="60dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button"
-                android:onClick="click"
                 android:text="Confirm OTP"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
