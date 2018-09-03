@@ -27,7 +27,9 @@
             android:name=".main"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".forgot_p" />
+        <activity android:name=".forgot_p"
+            android:label="Forgot Password"
+            android:parentActivityName=".main"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
