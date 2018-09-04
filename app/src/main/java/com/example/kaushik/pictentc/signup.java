@@ -42,7 +42,7 @@ public class signup extends AppCompatActivity {
     }
     private boolean check() {
         int k = 0,y=1,z=1,g=1,u=1;
-        
+
         if (fname.getText().toString().isEmpty()) {
             fname.setError("Enter first name");
             k++;
