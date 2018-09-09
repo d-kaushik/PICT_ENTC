@@ -6,4 +6,180 @@
     android:layout_height="match_parent"
     tools:context=".se">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="First Semester"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        />
+
+        <TextView
+            android:id="@+id/dsa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="260dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="15dp"
+            android:text="DSA"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/edc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="30dp"
+            android:textSize="15dp"
+            android:text="EDC"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+        android:id="@+id/ecm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="260dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="15dp"
+        android:text="ECM"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/sns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="30dp"
+            android:textSize="15dp"
+            android:text="SNS"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/de"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:layout_marginRight="260dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="15dp"
+            android:text="DE"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/emit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="30dp"
+            android:textSize="15dp"
+            android:text="EMIT"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Second Semester"
+            android:gravity="center"
+            android:layout_marginTop="180dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            />
+
+        <TextView
+            android:id="@+id/oop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginRight="260dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="15dp"
+            android:text="OOP"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/ic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="30dp"
+            android:textSize="15dp"
+            android:text="IC"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/ac"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:layout_marginRight="260dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="15dp"
+            android:text="AC"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/cs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="30dp"
+            android:textSize="15dp"
+            android:text="CS"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/m3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="280dp"
+            android:layout_marginRight="260dp"
+            android:layout_marginLeft="30dp"
+            android:textSize="15dp"
+            android:text="M3"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/esd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="280dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="30dp"
+            android:textSize="15dp"
+            android:text="ESD"
+            android:textColor="@color/black"
+            android:onClick="onClick"/>
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>

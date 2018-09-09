@@ -18,28 +18,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signup"
+        <activity
+            android:name=".signup"
             android:label="SIGN UP"
-            android:parentActivityName=".login"/>
+            android:parentActivityName=".login" />
         <activity
             android:name=".login"
             android:label="Login" />
         <activity
             android:name=".main"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="stateHidden"/>
-        <activity android:name=".forgot_p"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".forgot_p"
             android:label="Forgot Password"
-            android:parentActivityName=".main"/>
+            android:parentActivityName=".main" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".se"
-            android:label="SE"/>
-        <activity android:name=".te"
-            android:label="TE"/>
-        <activity android:name=".be"
-            android:label="BE"></activity>
+        <activity
+            android:name=".se"
+            android:label="SE" />
+        <activity
+            android:name=".te"
+            android:label="TE" />
+        <activity
+            android:name=".be"
+            android:label="BE" />
+        <activity android:name=".mc"></activity>
     </application>
 
 </manifest>
