@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class splash_screen extends AppCompatActivity {
+public class splash_screen extends login {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +18,16 @@ public class splash_screen extends AppCompatActivity {
             {
                 try{
                     sleep(1000);
-                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
+                    if(save==0)
+                    {
+                        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        Intent intent=new Intent(getApplicationContext(),main.class);
+                        startActivity(intent);
+                    }
                     finish();
                 }
                 catch (InterruptedException e)

@@ -9,10 +9,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.net.Inet4Address;
+
 public class forgot_p extends AppCompatActivity {
 
     Button fp_confirm;
-    EditText otp,pass,con_pass;
+    EditText otp,pass,con_pass,username;
+    int count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,54 +32,95 @@ public class forgot_p extends AppCompatActivity {
                 confirm();
             }
         });
+        username=(EditText)findViewById(R.id.sign_enrollNo);
     }
+
+
 
     private void confirm()
     {
-        String otp1=otp.getText().toString().trim();
-        if(checkotp(otp1))
+        if(checkotp(otp))
         {
             Toast.makeText(this,"OTP Verified",Toast.LENGTH_SHORT).show();
+            count++;
         }
     }
-    private boolean checkotp(String otp1)
+    private boolean checkotp(EditText otp)
     {
-        if(TextUtils.isEmpty(otp1))
-        {
-            Toast.makeText(this,"Please Enter OTP !",Toast.LENGTH_SHORT).show();
-            return false;
+        int k=0,g=1;
+        if (username.getText().toString().isEmpty()) {
+            username.setError("Enter enrollment number");
+            k++;
         }
-        return true;
+        if(username.getText().toString().startsWith("E2K")&& username.getText().toString().length()==11)
+        {
+            g=0;
+        }
+        if(g!=0 && username.getText().toString().length()!=0)
+        {
+            username.setError("Enter VALID enrollment number");
+            k++;
+        }
+        if(otp.getText().toString().isEmpty())
+        {
+            otp.setText("Enter OTP");
+            k++;
+        }
+        if(k==0)
+        {
+            return true;
+        }
+        else return false;
     }
     public void click(View view)
     {
-        if(TextUtils.isEmpty(pass.getText()))
+        if(check())
         {
-            pass.setError("Enter Password");
+            Intent intent=new Intent(this,login.class);
+            startActivity(intent);
         }
-        if(TextUtils.isEmpty(con_pass.getText()))
+
+    }
+    private boolean check()
+    {
+        int k=0,u=0;
+        if(count==0)
         {
-            con_pass.setError("Confirm Password");
+            Toast.makeText(this,"Confirm OTP ",Toast.LENGTH_SHORT).show();
         }
-        if(pass.getText().length()!=0 && pass.getText().length()<6)
+        if (count==1)
         {
-            pass.setError("Password should have minimum six characters");
-        }
-        if(pass.getText().length()>5 && con_pass.getText().length()>5  )
-        {
+            if(TextUtils.isEmpty(pass.getText()))
+            {
+                pass.setError("Enter Password");
+                k++;
+            }
+            if(TextUtils.isEmpty(con_pass.getText()))
+            {
+                con_pass.setError("Confirm Password");
+                k++;
+            }
+            if(pass.getText().length()!=0 && pass.getText().length()<6)
+            {
+                pass.setError("Password should have minimum six characters");
+                k++;
+            }
             if(pass.getText().toString().equals(con_pass.getText().toString()))
             {
-                Intent intent=new Intent(this,login.class);
-                startActivity(intent);
+                u=1;
             }
-
-
+            if(u!=1 && pass.getText().length()>5 )
+            {
+                    con_pass.setError("Password doesn't match");
+                    k++;
+            }
+            if(k==0)
+            {
+                return true;
+            }
+            else return false;
         }
-        else if(pass.getText().toString()!=con_pass.getText().toString())
-        {
-            Toast.makeText(this,"Password doesn't matched",Toast.LENGTH_SHORT).show();
-        }
-
+        else return false;
     }
 
 }

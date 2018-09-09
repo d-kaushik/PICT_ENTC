@@ -119,6 +119,7 @@
             android:textStyle="bold"
             android:textColor="@color/red"
             android:textSize="15dp"
+            android:onClick="click"
             android:text="Forgot Password?"></TextView>
 
 

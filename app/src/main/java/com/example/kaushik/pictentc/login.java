@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 public class login extends AppCompatActivity {
     EditText username,password;
+    static int save=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class login extends AppCompatActivity {
             {
                 Intent intent = new Intent(this, main.class);
                 startActivity(intent);
+                save++;
             }
 
         } else if (view.getId() == R.id.forgot_password) {
@@ -59,7 +61,7 @@ public class login extends AppCompatActivity {
             k++;
         }
         if (password.getText().toString().length() != 0 && password.getText().toString().length() < 7) {
-            Toast.makeText(this, "Wrong Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT).show();
             k++;
         }
         if(k==0)

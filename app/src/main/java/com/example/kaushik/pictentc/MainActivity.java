@@ -27,11 +27,16 @@ public class MainActivity extends AppCompatActivity {
             Intent intent=new Intent(this,signup.class);
             startActivity(intent);
         }
-        else  if(view.getId()==R.id.login_username)
+        else if(view.getId()==R.id.login_username)
         {
             Intent intent=new Intent(this,login.class);
             startActivity(intent);
         }
+        //else if(view.getId()==R.id.forgot_password);
+        //{
+            //Intent intent=new Intent(this,forgot_p.class);
+            //startActivity(intent);
+        //}
 
 
     }
