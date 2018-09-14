@@ -65,6 +65,8 @@
         android:background="@drawable/pictbk2"
         >
 
+
+
         <Button
             android:id="@+id/but_se"
             android:layout_width="150dp"
@@ -103,6 +105,19 @@
             android:textColor="@color/white"
             android:textSize="18dp"
             android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/teachers_login"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/button"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="teachres login" />
 
       
 

@@ -45,7 +45,9 @@
         <activity
             android:name=".be"
             android:label="BE" />
-        <activity android:name=".mc"></activity>
+        <activity android:name=".teachers_login"
+            android:label="Teachers Login"
+            android:parentActivityName=".main"></activity>
     </application>
 
 </manifest>

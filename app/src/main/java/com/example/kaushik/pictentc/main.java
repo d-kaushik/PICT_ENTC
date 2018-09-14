@@ -31,5 +31,10 @@ public class main extends AppCompatActivity {
             Intent intent=new Intent(this,be.class);
             startActivity(intent);
         }
+        else if(view.getId()==R.id.teachers_login)
+        {
+            Intent intent=new Intent(this,teachers_login.class);
+            startActivity(intent);
+        }
     }
 }

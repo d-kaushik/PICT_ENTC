@@ -16,8 +16,8 @@ public class te extends AppCompatActivity {
     {
         if(view.getId()==R.id.mc)
         {
-            Intent intent=new Intent(this,mc.class);
-            startActivity(intent);
+            //Intent intent=new Intent(this,mc.class);
+            //startActivity(intent);
         }
 
     }
