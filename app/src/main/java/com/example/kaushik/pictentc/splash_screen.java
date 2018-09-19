@@ -18,16 +18,16 @@ public class splash_screen extends login {
             {
                 try{
                     sleep(1000);
-                    if(save==0)
-                    {
+                    //if(save==0)
+                    //{
                         Intent intent=new Intent(getApplicationContext(),MainActivity.class);
                         startActivity(intent);
-                    }
-                    else
-                    {
-                        Intent intent=new Intent(getApplicationContext(),main.class);
-                        startActivity(intent);
-                    }
+                    //}
+                    //else
+                    //{
+                      //  Intent intent=new Intent(getApplicationContext(),main.class);
+                        //startActivity(intent);
+                    //}
                     finish();
                 }
                 catch (InterruptedException e)

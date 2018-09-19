@@ -3,4 +3,42 @@
     <string name="open">PICT ENTC</string>
     <string name="close">PICT ENTC</string>
 
+    <string-array name="Year">
+        <item>SE</item>
+        <item>TE</item>
+        <item>BE</item>
+    </string-array>
+
+    <string-array name="SE">
+        <item>DSA</item>
+        <item>DE</item>
+        <item>EDC</item>
+        <item>ECM</item>
+        <item>SNS</item>
+        <item>EMIT</item>
+        <item>OOP</item>
+        <item>M-3</item>
+        <item>IC</item>
+        <item>AC</item>
+        <item>CS</item>
+        <item>ESD</item>
+    </string-array>
+
+
+    <string-array name="TE">
+        <item>MC</item>
+        <item>DSP</item>
+        <item>DC</item>
+        <item>MECX</item>
+        <item>EM</item>
+        <item>ESD</item>
+    </string-array>
+
+
+    <string-array name="type">
+        <item>Assignments</item>
+        <item>University papers</item>
+        <item>Unit test Papers</item>
+        <item>Other</item>
+    </string-array>
 </resources>

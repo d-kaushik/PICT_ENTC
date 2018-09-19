@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 public class login extends AppCompatActivity {
     EditText username,password;
-    static int save=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +27,23 @@ public class login extends AppCompatActivity {
         }
         else if (view.getId() == R.id.login)
         {
-            if(check())
+            if((username.getText().toString().trim().equals("KD"))&&(password.getText().toString().trim().equals("123456")))
             {
+                Intent intent=new Intent(this,Teachers_login.class);
+                startActivity(intent);
+            }
+            else if(check())
+            {
+
                 Intent intent = new Intent(this, main.class);
                 startActivity(intent);
-                save++;
             }
 
         } else if (view.getId() == R.id.forgot_password) {
             Intent intent = new Intent(this, forgot_p.class);
             startActivity(intent);
         }
+
 
     }
     private boolean check()
@@ -55,6 +60,7 @@ public class login extends AppCompatActivity {
         if(g!=0 && username.getText().toString().length()!=0)
         {
             username.setError("Enter VALID username");
+            k++;
         }
         if (password.getText().toString().isEmpty()) {
             password.setError("Enter Password");
