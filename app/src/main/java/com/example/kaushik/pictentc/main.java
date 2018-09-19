@@ -23,7 +23,7 @@ public class main extends AppCompatActivity {
         }
         else if(view.getId()==R.id.but_te)
         {
-            Intent intent=new Intent(this,te.class);
+            Intent intent=new Intent(this,Year_TE.class);
             startActivity(intent);
         }
         else if(view.getId()==R.id.but_be)

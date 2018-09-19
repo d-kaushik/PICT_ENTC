@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/te_mc"
+        android:title="MC">
+    </item>
+
+    <item
+        android:id="@+id/te_dsp"
+        android:title="DSP">
+    </item>
+
+    <item
+        android:id="@+id/te_dc"
+        android:title="DC">
+    </item>
+
+    <item
+        android:id="@+id/te_mecx"
+        android:title="MECX">
+    </item>
+
+    <item
+        android:id="@+id/te_em"
+        android:title="EM">
+    </item>
+
+    <item
+        android:id="@+id/te_esd"
+        android:title="ESD">
+    </item>
+
+</menu>
