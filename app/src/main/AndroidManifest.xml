@@ -46,8 +46,12 @@
             android:name=".be"
             android:label="BE" />
         <activity android:name=".Year_TE" />
-        <activity android:name=".Teachers_login"
-            android:label="Teacher's Login"></activity>
+        <activity
+            android:name=".Teachers_login"
+            android:label="Teacher&apos;s Login" />
+        <activity android:name=".Notice"
+            android:parentActivityName=".MainActivity"
+            android:label="Notice"></activity>
     </application>
 
 </manifest>

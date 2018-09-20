@@ -31,6 +31,11 @@ public class main extends AppCompatActivity {
             Intent intent=new Intent(this,be.class);
             startActivity(intent);
         }
+        else if (view.getId()==R.id.main_but_notice)
+        {
+            Intent intent=new Intent(this,Notice.class);
+            startActivity(intent);
+        }
 
 
     }

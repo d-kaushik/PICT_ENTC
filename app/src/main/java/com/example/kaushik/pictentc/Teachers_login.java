@@ -20,8 +20,8 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teachers_login2);
 
-        progressBar=(ProgressBar)findViewById(R.id.teacher_login_progress);
-        progressBar.setVisibility(View.GONE);
+        //progressBar=(ProgressBar)findViewById(R.id.teacher_login_progress);
+        //progressBar.setVisibility(View.GONE);
         button_upload=(Button)findViewById(R.id.teacher_login_but_upload);
 
         Spinner spinner_year=(Spinner)findViewById(R.id.teacher_login_spinner_year);
@@ -70,10 +70,10 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
 
     public void button_click(View view)
     {
-        if(view.getId()==R.id.teacher_login_but_upload)
-        {
-            progressBar.setVisibility(view.VISIBLE);
-        }
+        //if(view.getId()==R.id.teacher_login_but_upload)
+        //{
+            //progressBar.setVisibility(view.VISIBLE);
+        //}
     }
 
 }

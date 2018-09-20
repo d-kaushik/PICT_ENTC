@@ -66,6 +66,10 @@ public class login extends AppCompatActivity {
             password.setError("Enter Password");
             k++;
         }
+        if (username.getText().toString().length() != 11) {
+            username.setError("Enter valid Enrollment number");
+            k++;
+        }
         if (password.getText().toString().length() != 0 && password.getText().toString().length() < 7) {
             Toast.makeText(this, "Password doesn't match", Toast.LENGTH_SHORT).show();
             k++;
