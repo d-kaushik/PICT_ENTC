@@ -7,12 +7,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.widget.TabHost;
-import android.widget.Toast;
 
-public class Year_TE extends AppCompatActivity {
+public class Year_SE extends AppCompatActivity {
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
@@ -20,7 +17,7 @@ public class Year_TE extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_year__te);
+        setContentView(R.layout.activity_year__se);
 
         dl=(DrawerLayout)findViewById(R.id.dl);
         abdt=new ActionBarDrawerToggle(this,dl, R.string.open, R.string.close);
@@ -36,7 +33,7 @@ public class Year_TE extends AppCompatActivity {
 
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new fragment_te()).commit();
-            nav_view.setCheckedItem(R.id.te_mc);
+            nav_view.setCheckedItem(R.id.se_dsa);
         }
 
 
@@ -48,7 +45,7 @@ public class Year_TE extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id=menuItem.getItemId();
 
-                if(id==R.id.te_mc)
+                if(id==R.id.se_dsa)
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             new fragment_te()).commit();

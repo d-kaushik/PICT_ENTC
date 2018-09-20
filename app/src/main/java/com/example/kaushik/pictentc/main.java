@@ -18,7 +18,7 @@ public class main extends AppCompatActivity {
     {
         if(view.getId()==R.id.but_se)
         {
-            Intent intent=new Intent(this,se.class);
+            Intent intent=new Intent(this,Year_SE.class);
             startActivity(intent);
         }
         else if(view.getId()==R.id.but_te)

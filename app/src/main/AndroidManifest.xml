@@ -40,18 +40,17 @@
             android:name=".se"
             android:label="SE" />
         <activity
-            android:name=".te"
-            android:label="TE" />
-        <activity
             android:name=".be"
             android:label="BE" />
         <activity android:name=".Year_TE" />
         <activity
             android:name=".Teachers_login"
             android:label="Teacher&apos;s Login" />
-        <activity android:name=".Notice"
-            android:parentActivityName=".MainActivity"
-            android:label="Notice"></activity>
+        <activity
+            android:name=".Notice"
+            android:label="Notice"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".Year_SE"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,8 @@
     <string name="app_name">PICT ENTC</string>
     <string name="open">PICT ENTC</string>
     <string name="close">PICT ENTC</string>
+    <string name="Open">PICT ENTC</string>
+    <string name="Close">PICT ENTC</string>
 
     <string-array name="Year">
         <item>SE</item>

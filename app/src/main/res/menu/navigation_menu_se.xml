@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/se_dsa"
+        android:title="DSA"></item>
+
+    <item
+        android:id="@+id/se_de"
+        android:title="DE"></item>
+
+    <item
+        android:id="@+id/se_edc"
+        android:title="EDC"></item>
+    <item
+        android:id="@+id/se_ecm"
+        android:title="ECM"></item>
+    <item
+        android:id="@+id/se_sns"
+        android:title="SNS"></item>
+    <item
+        android:id="@+id/se_emit"
+        android:title="EMIT"></item>
+    <item
+        android:id="@+id/se_oop"
+        android:title="OOP"></item>
+    <item
+        android:id="@+id/se_m3"
+        android:title="M-3"></item>
+    <item
+        android:id="@+id/se_ic"
+        android:title="IC"></item>
+    <item
+        android:id="@+id/se_ac"
+        android:title="AC"></item>
+    <item
+        android:id="@+id/se_cs"
+        android:title="CS"></item>
+    <item
+        android:id="@+id/se_esd"
+        android:title="ESD"></item>
+
+</menu>
