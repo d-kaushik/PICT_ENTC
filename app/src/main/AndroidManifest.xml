@@ -26,10 +26,6 @@
             android:name=".login"
             android:label="Login" />
         <activity
-            android:name=".main"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            android:windowSoftInputMode="stateHidden" />
-        <activity
             android:name=".forgot_p"
             android:label="Forgot Password"
             android:parentActivityName=".main" />
@@ -46,8 +42,11 @@
         <activity
             android:name=".Notice"
             android:label="Notice"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".Year_SE"></activity>
+            android:parentActivityName=".main" />
+        <activity android:name=".Year_SE" />
+        <activity android:name=".Front"
+            android:label=" "
+            ></activity>
     </application>
 
 </manifest>

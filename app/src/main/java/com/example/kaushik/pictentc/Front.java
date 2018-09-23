@@ -1,5 +1,9 @@
 package com.example.kaushik.pictentc;
 
+import android.app.ActionBar;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -7,12 +11,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
-import android.widget.TabHost;
-import android.widget.Toast;
+import android.view.View;
 
-public class Year_TE extends AppCompatActivity {
+public class Front extends AppCompatActivity {
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
@@ -20,7 +22,7 @@ public class Year_TE extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_year__te);
+        setContentView(R.layout.activity_front);
 
         dl=(DrawerLayout)findViewById(R.id.dl);
         abdt=new ActionBarDrawerToggle(this,dl, R.string.open, R.string.close);
@@ -31,13 +33,8 @@ public class Year_TE extends AppCompatActivity {
 
         final NavigationView nav_view=(NavigationView)findViewById(R.id.nav_view);
 
-        if(savedInstanceState==null)
-        {
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new fragment_te()).commit();
-            nav_view.setCheckedItem(R.id.te_mc);
-        }
+        //ActionBar bar=getActionBar();
+        //bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#131337")));
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -48,28 +45,46 @@ public class Year_TE extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id=menuItem.getItemId();
 
-                if(id==R.id.te_mc)
+                if(id==R.id.notice)
                 {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
-                }
+                    Intent intent=new Intent(Front.this,Notice.class);
+                    startActivity(intent);
+                    finish();
 
-                else if(id==R.id.te_dsp)
-                {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
                 }
-
-                else if(id==R.id.te_dc)
+                if(id==R.id.logout)
                 {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                    Intent intent=new Intent(Front.this,MainActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
                 dl.closeDrawer(GravityCompat.START);
 
                 return true;
             }
         });
+
+
+    }
+    public void onClick(View view)
+    {
+        if(view.getId()==R.id.but_se)
+        {
+            Intent intent=new Intent(this,Year_SE.class);
+            startActivity(intent);
+        }
+        else if(view.getId()==R.id.but_te)
+        {
+            Intent intent=new Intent(this,Year_TE.class);
+            startActivity(intent);
+        }
+        else if(view.getId()==R.id.but_be)
+        {
+            Intent intent=new Intent(this,be.class);
+            startActivity(intent);
+        }
+
+
 
     }
 

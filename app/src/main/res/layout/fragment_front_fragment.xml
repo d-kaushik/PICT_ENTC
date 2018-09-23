@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main">
-
+    tools:context=".Front_fragment">
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -23,7 +21,7 @@
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/pictlogo" />
+            android:background="@drawable/pictlogo" />
 
         <TextView
             android:id="@+id/txt_college_name"
@@ -106,24 +104,10 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/main_but_notice"
-            android:onClick="onClick"
-            android:layout_width="wrap_content"
-            android:layout_gravity="center"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:layout_marginTop="10dp"
-            android:textSize="13dp"
-            android:textStyle="bold"
-            android:text="notice"
-            android:textAllCaps="true"
-            android:background="@drawable/but_notice"
-            />
 
 
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+
+</FrameLayout>

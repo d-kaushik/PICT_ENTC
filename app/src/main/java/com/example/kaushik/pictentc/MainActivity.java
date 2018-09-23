@@ -20,18 +20,28 @@ public class MainActivity extends AppCompatActivity {
         InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(editText.getWindowToken(),InputMethodManager.RESULT_HIDDEN);
     }
+
+    @Override
+    public void onBackPressed() {
+
+        //super.onBackPressed();
+    }
+
     public void click(View view)
     {
         if(view.getId()==R.id.sign_up)
         {
             Intent intent=new Intent(this,signup.class);
             startActivity(intent);
+            finish();
         }
         else if(view.getId()==R.id.login_username)
         {
             Intent intent=new Intent(this,login.class);
             startActivity(intent);
+            finish();
         }
+
         //else if(view.getId()==R.id.forgot_password);
         //{
             //Intent intent=new Intent(this,forgot_p.class);
@@ -40,5 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 
 }

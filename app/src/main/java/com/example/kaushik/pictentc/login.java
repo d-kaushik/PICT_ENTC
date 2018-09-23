@@ -23,6 +23,7 @@ public class login extends AppCompatActivity {
         {
             Intent intent = new Intent(this, signup.class);
             startActivity(intent);
+            finish();
 
         }
         else if (view.getId() == R.id.login)
@@ -31,17 +32,20 @@ public class login extends AppCompatActivity {
             {
                 Intent intent=new Intent(this,Teachers_login.class);
                 startActivity(intent);
+                finish();
             }
             else if(check())
             {
 
-                Intent intent = new Intent(this, main.class);
+                Intent intent = new Intent(this, Front.class);
                 startActivity(intent);
+                finish();
             }
 
         } else if (view.getId() == R.id.forgot_password) {
             Intent intent = new Intent(this, forgot_p.class);
             startActivity(intent);
+            finish();
         }
 
 
@@ -82,3 +86,4 @@ public class login extends AppCompatActivity {
     }
 }
 
+//#3F51B5

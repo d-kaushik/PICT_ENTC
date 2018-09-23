@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/notice"
+        android:icon="@drawable/ic_message_black_24dp"
+        android:title="Notice">
+    </item>
+
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_power_settings_new_black_24dp"
+        android:title="Log out">
+    </item>
+
+
+</menu>
