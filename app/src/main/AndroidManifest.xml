@@ -37,9 +37,6 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".se"
-            android:label="SE" />
-        <activity
             android:name=".be"
             android:label="BE" />
         <activity android:name=".Year_TE" />

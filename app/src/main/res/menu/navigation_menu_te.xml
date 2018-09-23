@@ -26,9 +26,41 @@
         android:title="EM">
     </item>
 
-    <item
-        android:id="@+id/te_esd"
-        android:title="ESD">
+        <item
+            android:id="@+id/te_esd"
+            android:title="ESD">
     </item>
+
+    <item
+        android:id="@+id/te_pe"
+        android:title="PE">
+    </item>
+
+    <item
+        android:id="@+id/te_itccn"
+        android:title="ITCCN">
+    </item>
+
+    <item
+        android:id="@+id/te_bm"
+        android:title="BM">
+    </item>
+    <item
+        android:id="@+id/te_ap"
+        android:title="AP">
+    </item>
+    <item
+        android:id="@+id/te_spos"
+        android:title="SPOS">
+    </item>
+    <item
+        android:id="@+id/te_es"
+        android:title="ES N mini proj">
+    </item>
+
+
+
+
+
 
 </menu>
