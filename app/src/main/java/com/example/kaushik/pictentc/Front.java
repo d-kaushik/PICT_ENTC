@@ -49,7 +49,7 @@ public class Front extends AppCompatActivity {
                 {
                     Intent intent=new Intent(Front.this,Notice.class);
                     startActivity(intent);
-                    finish();
+
 
                 }
                 if(id==R.id.logout)

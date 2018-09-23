@@ -28,7 +28,7 @@
         <activity
             android:name=".forgot_p"
             android:label="Forgot Password"
-            android:parentActivityName=".main" />
+            android:parentActivityName=".Front" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -42,7 +42,7 @@
         <activity
             android:name=".Notice"
             android:label="Notice"
-            android:parentActivityName=".main" />
+            android:parentActivityName=".Front" />
         <activity android:name=".Year_SE" />
         <activity android:name=".Front"
             android:label=" "
