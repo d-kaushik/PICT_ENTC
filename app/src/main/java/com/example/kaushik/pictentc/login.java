@@ -23,7 +23,6 @@ public class login extends AppCompatActivity {
         {
             Intent intent = new Intent(this, signup.class);
             startActivity(intent);
-            finish();
 
         }
         else if (view.getId() == R.id.login)

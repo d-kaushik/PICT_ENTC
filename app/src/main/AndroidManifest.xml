@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".signup"
             android:label="SIGN UP"
@@ -32,9 +33,6 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".be"
-            android:label="BE" />
         <activity android:name=".Year_TE" />
         <activity
             android:name=".Teachers_login"
@@ -44,9 +42,10 @@
             android:label="Notice"
             android:parentActivityName=".Front" />
         <activity android:name=".Year_SE" />
-        <activity android:name=".Front"
-            android:label=" "
-            ></activity>
+        <activity
+            android:name=".Front"
+            android:label=" " />
+        <activity android:name=".Year_BE"></activity>
     </application>
 
 </manifest>

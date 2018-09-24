@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/be_vlsi"
+        android:title="VLSI Design and Tech">
+    </item>
+
+    <item
+        android:id="@+id/be_cns"
+        android:title="CNS">
+    </item>
+
+    <item
+        android:id="@+id/be_emt"
+        android:title="RMT">
+    </item>
+
+    <item
+        android:id="@+id/be_dip"
+        android:title="DIP">
+    </item>
+
+    <item
+        android:id="@+id/be_esrtos"
+        android:title="ESRTOS">
+    </item>
+
+    <item
+        android:id="@+id/be_iot"
+        android:title="IOT">
+    </item>
+
+    <item
+        android:id="@+id/be_plc"
+        android:title="PLC">
+    </item>
+
+    <item
+        android:id="@+id/be_ai"
+        android:title="AI">
+    </item>
+
+    <item
+        android:id="@+id/be_epd"
+        android:title="EPD">
+    </item>
+
+    <item
+        android:id="@+id/be_mc"
+        android:title="MC">
+    </item>
+    <item
+        android:id="@+id/be_bcs"
+        android:title="BCS">
+    </item>
+    <item
+        android:id="@+id/be_ave"
+        android:title="AVE">
+    </item>
+    <item
+        android:id="@+id/be_sasp"
+        android:title="SASP">
+    </item>
+    <item
+        android:id="@+id/be_sc"
+        android:title="SC">
+    </item>
+    <item
+        android:id="@+id/be_bsp"
+        android:title="BSP">
+    </item>
+    <item
+        android:id="@+id/be_namo"
+        android:title="Nano">
+    </item>
+    <item
+        android:id="@+id/be_wn"
+        android:title="WN">
+    </item>
+    <item
+        android:id="@+id/be_project"
+        android:title="Project">
+    </item>
+
+
+</menu>

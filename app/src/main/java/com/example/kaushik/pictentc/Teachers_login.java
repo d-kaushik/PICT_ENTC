@@ -75,12 +75,16 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         //{
             //progressBar.setVisibility(view.VISIBLE);
         //}
+
+        //Intent intent=new Intent("android.media.action.IMAGE_CAPTURE");
+        //startActivity(intent);
     }
     public void onClick(View view)
     {
         Intent intent=new Intent(this,Front.class);
         startActivity(intent);
     }
+
 
 
 }

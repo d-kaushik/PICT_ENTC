@@ -1,9 +1,5 @@
 package com.example.kaushik.pictentc;
 
-import android.app.ActionBar;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +8,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
-public class Front extends AppCompatActivity {
+public class Year_BE extends AppCompatActivity {
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
@@ -22,7 +17,7 @@ public class Front extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_front);
+        setContentView(R.layout.activity_year__be);
 
         dl=(DrawerLayout)findViewById(R.id.dl);
         abdt=new ActionBarDrawerToggle(this,dl, R.string.open, R.string.close);
@@ -33,8 +28,13 @@ public class Front extends AppCompatActivity {
 
         final NavigationView nav_view=(NavigationView)findViewById(R.id.nav_view);
 
-        //ActionBar bar=getActionBar();
-        //bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#131337")));
+        if(savedInstanceState==null)
+        {
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new fragment_te()).commit();
+            nav_view.setCheckedItem(R.id.be_vlsi);
+        }
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -45,46 +45,16 @@ public class Front extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id=menuItem.getItemId();
 
-                if(id==R.id.notice)
+                if(id==R.id.be_vlsi)
                 {
-                    Intent intent=new Intent(Front.this,Notice.class);
-                    startActivity(intent);
-
-
-                }
-                if(id==R.id.logout)
-                {
-                    Intent intent=new Intent(Front.this,MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
                 }
                 dl.closeDrawer(GravityCompat.START);
 
                 return true;
             }
         });
-
-
-    }
-    public void onClick(View view)
-    {
-        if(view.getId()==R.id.but_se)
-        {
-            Intent intent=new Intent(this,Year_SE.class);
-            startActivity(intent);
-        }
-        else if(view.getId()==R.id.but_te)
-        {
-            Intent intent=new Intent(this,Year_TE.class);
-            startActivity(intent);
-        }
-        else if(view.getId()==R.id.but_be)
-        {
-            Intent intent=new Intent(this,Year_BE.class);
-            startActivity(intent);
-        }
-
-
 
     }
 
