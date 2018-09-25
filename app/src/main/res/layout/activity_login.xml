@@ -6,15 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".login">
 
-    <RelativeLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="0dp"
         android:scrollIndicators="right"
-        android:scrollbars="vertical"
-        android:scrollY="2dp">
+        android:scrollY="2dp"
+        android:scrollbars="vertical">
 
         <EditText
             android:id="@+id/login_username"
@@ -50,30 +48,28 @@
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_gravity="center"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="70dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:textStyle="bold"
             android:layout_marginTop="170dp"
             android:background="@drawable/kaushik"
+            android:gravity="center"
             android:text="Login"
-            android:onClick="click"/>
+            android:textColor="@color/white"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/forgot_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:layout_marginTop="240dp"
             android:layout_marginRight="200dp"
-            android:textStyle="bold"
+            android:layout_marginTop="240dp"
+            android:gravity="center"
+            android:text="Forgot Password?"
             android:textColor="@color/red"
             android:textSize="15dp"
-            android:text="Forgot Password?"
-            android:onClick="click"></TextView>
+            android:textStyle="bold"></TextView>
 
 
         <TextView
@@ -83,12 +79,10 @@
             android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/forgot_password"
             android:gravity="center"
-            android:onClick="click"
             android:text="SIGN UP"
             android:textColor="@color/green"
             android:textSize="15dp"
             android:textStyle="bold" />
-
 
 
     </RelativeLayout>
