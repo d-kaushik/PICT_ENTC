@@ -48,7 +48,19 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         progressBar=(ProgressBar)findViewById(R.id.progressbar);
         //clicklisteners
         findViewById(R.id.sign_signup).setOnClickListener(this);
+        pass.setEnabled(false);
+        con_pass.setEnabled(false);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser()==null){
+            finish();
+            startActivity(new Intent(this,login.class));
+        }
+    }
+
     @Override
     public void onClick(View view) {
         switch(view.getId()){
