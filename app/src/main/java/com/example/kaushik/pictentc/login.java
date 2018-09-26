@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 
 public class login extends AppCompatActivity implements View.OnClickListener {
     EditText username,password;
@@ -37,10 +38,19 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(mAuth.getCurrentUser()!=null){
+            finish();
+            startActivity(new Intent(this,Front.class));
+        }
+    }
 
     private void userLogin() {
         String mail=username.getText().toString().trim();
         String passw=password.getText().toString().trim();
+        final FirebaseUser user= mAuth.getCurrentUser();
         if (username.getText().toString().isEmpty()) {
             username.setError("Enter E-mail address");
             username.requestFocus();
@@ -68,10 +78,20 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
-                    Intent intent=new Intent(login.this, Front.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//back does not come to login
-                    startActivity(intent);
                     finish();
+                    Intent intent=new Intent(login.this, Front.class);
+                    startActivity(intent);
+                    /*if(user.isEmailVerified()){
+                        finish();
+                        Intent intent=new Intent(login.this, Front.class);
+                        startActivity(intent);
+                    }
+                    else{
+                        finish();
+                        Toast.makeText(getApplicationContext(),"VERIFY USER EMAIL",Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(login.this,verify.class));
+                    }
+*/
 
                 } else {
                     Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
@@ -109,10 +129,11 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
+                    finish();
                     Intent intent=new Intent(login.this, Teachers_login.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//back does not come to login
                     startActivity(intent);
-                    finish();
+
 
                 } else {
                     Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
@@ -126,6 +147,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         switch (view.getId()){
             case R.id.sign_up:
             {
+                finish();
                 Intent intent = new Intent(this, signup.class);
                 startActivity(intent);
                 break;
@@ -133,6 +155,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             }
             case R.id.forgot_password:
             {
+                finish();
                 Intent intent = new Intent(this, forgot_p.class);
                 startActivity(intent);
                 break;

@@ -14,6 +14,8 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Front extends AppCompatActivity {
 
     private DrawerLayout dl;
@@ -54,15 +56,16 @@ public class Front extends AppCompatActivity {
                 }
                 if(id==R.id.logout)
                 {
-                    Intent intent=new Intent(Front.this,MainActivity.class);
-                    startActivity(intent);
+                    FirebaseAuth.getInstance().signOut();
                     finish();
+                    startActivity(new Intent(getApplicationContext(),login.class));
                 }
                 dl.closeDrawer(GravityCompat.START);
 
                 return true;
             }
         });
+
 
 
     }
@@ -91,5 +94,19 @@ public class Front extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            finish();
+            startActivity(new Intent(this,login.class));
+        }
+        if(!(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified())){
+            finish();
+            startActivity(new Intent(this,verify.class));
+
+        }
     }
 }

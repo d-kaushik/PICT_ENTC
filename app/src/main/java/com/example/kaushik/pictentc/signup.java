@@ -26,6 +26,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
 
     EditText fname,lname,otp,enroll_no,roll_no,email,mob,pass,con_pass;
     Button sign;
+    String name;
     ProgressBar progressBar;
     private FirebaseAuth mAuth;
 
@@ -48,18 +49,11 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         progressBar=(ProgressBar)findViewById(R.id.progressbar);
         //clicklisteners
         findViewById(R.id.sign_signup).setOnClickListener(this);
-        pass.setEnabled(false);
-        con_pass.setEnabled(false);
+        //pass.setEnabled(false);
+        //con_pass.setEnabled(false);
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if(mAuth.getCurrentUser()==null){
-            finish();
-            startActivity(new Intent(this,login.class));
-        }
-    }
+
 
     @Override
     public void onClick(View view) {
@@ -75,7 +69,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
     private void registerUser() {
         final String f_name=fname.getText().toString().trim();
         final String l_name=lname.getText().toString().trim();
-        //final String name=(f_name+' '+l_name);
+        final String name=(f_name+' '+l_name);
         final String mail=email.getText().toString().trim();
         final String enroll=enroll_no.getText().toString().trim();
         String passw=pass.getText().toString().trim();
@@ -170,7 +164,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                         progressBar.setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             User user = new User(
-                                    f_name,
+                                    name,
                                     mail,
                                     phone,enroll);
                             FirebaseDatabase.getInstance().getReference("User")
@@ -180,7 +174,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     progressBar.setVisibility(View.GONE);
                                     if(task.isSuccessful()){
-                                        Intent intent=new Intent(signup.this, Front.class);
+                                        Intent intent=new Intent(signup.this, verify.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intent);
                                         Toast.makeText(getApplicationContext(),"USER registered",Toast.LENGTH_LONG).show();

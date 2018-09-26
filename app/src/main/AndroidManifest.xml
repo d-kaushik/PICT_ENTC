@@ -18,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".signup"
             android:label="SIGN UP"
@@ -45,7 +44,8 @@
         <activity
             android:name=".Front"
             android:label=" " />
-        <activity android:name=".Year_BE"></activity>
+        <activity android:name=".Year_BE" />
+        <activity android:name=".verify"></activity>
     </application>
 
 </manifest>

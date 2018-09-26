@@ -9,6 +9,9 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -25,6 +28,14 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
 
         //super.onBackPressed();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser()!=null){
+            finish();
+            startActivity(new Intent(this,Front.class));
+        }
     }
 
     public void click(View view)
