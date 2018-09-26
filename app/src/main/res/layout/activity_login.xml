@@ -24,7 +24,7 @@
             android:layout_marginTop="30dp"
             android:ems="10"
             android:hint="Username"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
 
             android:textColorLink="@color/dark_blue"
             tools:textColorLink="@color/dark_blue" />
