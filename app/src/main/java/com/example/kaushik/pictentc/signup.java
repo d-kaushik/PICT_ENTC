@@ -168,6 +168,9 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     progressBar.setVisibility(View.GONE);
                                     if(task.isSuccessful()){
+                                        Intent intent=new Intent(signup.this, Front.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(intent);
                                         Toast.makeText(getApplicationContext(),"USER registered",Toast.LENGTH_LONG).show();
 
                                     }
