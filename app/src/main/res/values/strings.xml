@@ -35,8 +35,34 @@
         <item>MECX</item>
         <item>EM</item>
         <item>ESD</item>
+        <item>PE</item>
+        <item>ITCCN</item>
+        <item>BM</item>
+        <item>AP</item>
+        <item>SPOS</item>
+        <item>ES N mini Project</item>
     </string-array>
 
+    <string-array name="BE">
+        <item>VLSI</item>
+        <item>CN</item>
+        <item>RMT</item>
+        <item>DIP</item>
+        <item>ESRTOS</item>
+        <item>IOT</item>
+        <item>PLC</item>
+        <item>AI</item>
+        <item>EPD</item>
+        <item>MC</item>
+        <item>BCS</item>
+        <item>AVE</item>
+        <item>SASP</item>
+        <item>SC</item>
+        <item>BPS</item>
+        <item>Nano</item>
+        <item>WN</item>
+        <item>Project</item>
+    </string-array>
 
     <string-array name="type">
         <item>Assignments</item>

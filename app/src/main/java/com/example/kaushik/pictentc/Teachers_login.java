@@ -64,6 +64,15 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
             spinner_sub.setOnItemSelectedListener(this);
 
         }
+        else if(parent.getItemAtPosition(position).toString().trim().equals("BE"))
+        {
+
+            ArrayAdapter<CharSequence>adapter_sub=ArrayAdapter.createFromResource(this,R.array.BE,R.layout.support_simple_spinner_dropdown_item);
+            adapter_sub.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+            spinner_sub.setAdapter(adapter_sub);
+            spinner_sub.setOnItemSelectedListener(this);
+
+        }
 
 
     }
