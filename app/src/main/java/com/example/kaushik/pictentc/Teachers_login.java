@@ -3,12 +3,16 @@ package com.example.kaushik.pictentc;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Teachers_login extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -81,6 +85,29 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                 //
             }
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.teachers_login_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id=item.getItemId();
+
+        switch (id)
+        {
+            case R.id.teacher_login_logout:
+            {
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+            }
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 
 

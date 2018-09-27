@@ -58,7 +58,7 @@ public class Front extends AppCompatActivity {
                 {
                     FirebaseAuth.getInstance().signOut();
                     finish();
-                    startActivity(new Intent(getApplicationContext(),login.class));
+                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 }
                 dl.closeDrawer(GravityCompat.START);
 

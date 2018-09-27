@@ -30,18 +30,21 @@
         android:layout_height="wrap_content"
         app:barrierDirection="top" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
     <TextView
         android:id="@+id/Status"
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:text="E-mail not verified"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        app:layout_constraintBottom_toTopOf="@+id/progressbar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="50dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/red"/>
 
     <Button
         android:id="@+id/verify_Verify"
@@ -51,11 +54,9 @@
         android:text="Verify"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Status"
-        app:layout_constraintVertical_bias="0.392" />
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"/>
+    </LinearLayout>
 
     <android.support.constraint.Barrier
         android:id="@+id/barrier4"
