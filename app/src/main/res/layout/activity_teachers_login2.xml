@@ -114,7 +114,8 @@
         android:textSize="15dp"
         android:textColor="@color/red"
         android:text="upload notice"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:onClick="button_click"/>
 
     <View
         android:layout_width="match_parent"
