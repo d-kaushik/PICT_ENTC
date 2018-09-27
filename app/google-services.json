@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "691489495304",
+    "firebase_url": "https://pictentc-ef60a.firebaseio.com",
+    "project_id": "pictentc-ef60a",
+    "storage_bucket": "pictentc-ef60a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:691489495304:android:772ee2c8ebe014ac",
+        "android_client_info": {
+          "package_name": "com.example.dkaushik.pictentc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "691489495304-14lq83flr4ov8o3pitbrv16ldd1fji23.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dkaushik.pictentc",
+            "certificate_hash": "caf522243f1e84a64a13cd10adc1fcc728ed64ac"
+          }
+        },
+        {
+          "client_id": "691489495304-i867e9bnm2pui8g08pqqqbtnp1dsdth4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBegaeF1Nfy-BnvK02mkTfVIY0Tp2cGmPE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "691489495304-i867e9bnm2pui8g08pqqqbtnp1dsdth4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
