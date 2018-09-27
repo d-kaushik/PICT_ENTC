@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 
 public class Teachers_login extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
-    private static final int PICK_IMAGE_REQUEST=123;
+
     Spinner spinner_sub;
     ProgressBar progressBar;
     Button button_upload;
@@ -69,28 +69,18 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    public void button_click(View view)
-    {
-        //if(view.getId()==R.id.teacher_login_but_upload)
-        //{
-            //progressBar.setVisibility(view.VISIBLE);
-        //}
-
-        //Intent intent=new Intent("android.media.action.IMAGE_CAPTURE");
-        //startActivity(intent);
-        showFileChooser();
-    }
     public void onClick(View view)
     {
-        Intent intent=new Intent(this,Front.class);
-        startActivity(intent);
-    }
-    private void showFileChooser()
-    {
-        Intent intent=new Intent();
-        intent.setType("pdf/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Select PDF"),PICK_IMAGE_REQUEST);
+        switch (view.getId()){
+            case R.id.teacher_login_txt_student_gui:{
+                finish();
+                startActivity(new Intent(this,Front.class));
+                break;
+            }
+            case R.id.teacher_login_but_upload:{
+                //
+            }
+        }
     }
 
 

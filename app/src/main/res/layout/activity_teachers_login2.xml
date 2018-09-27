@@ -87,6 +87,15 @@
             android:layout_marginTop="120dp"></Spinner>
 
     </LinearLayout>
+    <Button
+        android:id="@+id/teacher_login_but_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:text="SELECT FILE"
+        android:background="@drawable/but_option" />
 
     <Button
         android:id="@+id/teacher_login_but_upload"
@@ -96,8 +105,7 @@
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
         android:text="Upload"
-        android:background="@drawable/but_option"
-        android:onClick="button_click"/>
+        android:background="@drawable/but_option" />
 
     <View
         android:layout_width="match_parent"
