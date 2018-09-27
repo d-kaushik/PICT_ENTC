@@ -157,7 +157,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="55dp"
         android:gravity="center"
-        android:onClick="onClick"
         android:text="check updates"
         android:textAllCaps="true"
         android:textColor="@color/green"
@@ -165,7 +164,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tl_status"
+        android:id="@+id/tl_stat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/teacher_login_but_upload"

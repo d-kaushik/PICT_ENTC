@@ -3,6 +3,7 @@ package com.example.kaushik.pictentc;
 import android.*;
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -21,18 +22,27 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 public class Teachers_login extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     Spinner spinner_sub;
-    ProgressBar progressBar;
+    //ProgressBar progressBar;
     Button button_upload,button_select;
     TextView status;
     FirebaseStorage storage;
     FirebaseDatabase database;
     Uri pdfUri;//URL for local storage
+    ProgressDialog progressDialog;
 
 
 
@@ -45,7 +55,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         //progressBar.setVisibility(View.GONE);
         button_upload=(Button)findViewById(R.id.teacher_login_but_upload);
         button_select=(Button)findViewById(R.id.teacher_login_but_select);
-        status=(TextView)findViewById(R.id.tl_status);
+        status=(TextView)findViewById(R.id.tl_stat);
         storage=FirebaseStorage.getInstance();//returns obj of firebase storage
         database=FirebaseDatabase.getInstance();
 
@@ -58,6 +68,17 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                     ActivityCompat.requestPermissions(Teachers_login.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},4);
 
                 }
+            }
+        });
+        button_upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(pdfUri!=null){
+                    upLoadFile(pdfUri);
+                }else{
+                    Toast.makeText(getApplicationContext(),"Select a file",Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -79,6 +100,54 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         spinner_type.setAdapter(adapter_type);
         spinner_type.setOnItemSelectedListener(this);
     }
+
+    private void upLoadFile(Uri pdfUri) {
+        progressDialog=new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setTitle("Uploading File...");
+        progressDialog.setProgress(0);
+        progressDialog.show();
+        final String fileName=System.currentTimeMillis()+"";
+        StorageReference storageReference=storage.getReference();//root path
+        storageReference.child("Uploads").child(fileName).putFile(pdfUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        String url=taskSnapshot.getDownloadUrl().toString();
+                        //store in database
+                        DatabaseReference databaseReference=database.getReference();
+                        databaseReference.child(fileName).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if(task.isSuccessful()){
+                                    Toast.makeText(getApplicationContext(),"File Uploaded",Toast.LENGTH_LONG).show();
+                                }else{
+                                    Toast.makeText(getApplicationContext(),"File Not Uploaded",Toast.LENGTH_LONG).show();
+
+                                }
+                            }
+                        });
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(),"File Not Uploaded",Toast.LENGTH_LONG).show();
+
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                //track progress
+                //progress bar
+                int currentProgress=(int)(100*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                progressDialog.setProgress(currentProgress);
+            }
+
+        });
+        progressDialog.dismiss();
+
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -103,7 +172,10 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         //user has selected the file or not checking
         if(requestCode==5 && resultCode==RESULT_OK && data!=null){
-
+            pdfUri=data.getData();//URI of selected file
+            status.setText("File Selected:"+ data.getData().getLastPathSegment());
+        }else{
+            Toast.makeText(getApplicationContext(),"Please Select a File",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -137,11 +209,11 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     }
 
 
-    public void onClick(View view)
+/*    public void onClick(View view)
     {
         Intent intent=new Intent(this,Front.class);
         startActivity(intent);
-    }
+    }*/
 
 
 
