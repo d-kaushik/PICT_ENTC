@@ -180,37 +180,6 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
 
 
-    /*    public void click(View view) {
-            if (view.getId() == R.id.sign_up)
-            {
-                Intent intent = new Intent(this, signup.class);
-                startActivity(intent);
-
-            }
-            else if (view.getId() == R.id.login)
-            {
-                if((username.getText().toString().trim().equals("KD"))&&(password.getText().toString().trim().equals("123456")))
-                {
-                    Intent intent=new Intent(this,Teachers_login.class);
-                    startActivity(intent);
-                    finish();
-                }
-                else if(check())
-                {
-
-                    Intent intent = new Intent(this, Front.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-            } else if (view.getId() == R.id.forgot_password) {
-                Intent intent = new Intent(this, forgot_p.class);
-                startActivity(intent);
-
-            }
-
-
-        }*/
 
 
 

@@ -65,7 +65,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:id="@+id/linearLayout">
 
 
         <TextView
@@ -88,52 +89,91 @@
 
     </LinearLayout>
 
+
+    <Button
+        android:id="@+id/teacher_login_but_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/view3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="22dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/but_option"
+
+        android:text="Select File" />
+
     <Button
         android:id="@+id/teacher_login_but_upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_alignBottom="@+id/view2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
-        android:text="Upload"
         android:background="@drawable/but_option"
-        android:onClick="button_click"/>
+
+        android:text="Upload" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/black"
-        android:layout_marginTop="280dp">
+        android:layout_marginTop="280dp"
+        android:id="@+id/view3">
     </View>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="310dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/view2"
+        android:layout_marginTop="60dp"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:textColor="@color/red"
         android:text="upload notice"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textColor="@color/red"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/black"
-        android:layout_marginTop="360dp">
+        android:layout_marginTop="360dp"
+        android:id="@+id/view2">
     </View>
 
     <TextView
         android:id="@+id/teacher_login_txt_student_gui"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="390dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="55dp"
         android:gravity="center"
-        android:textStyle="bold"
         android:onClick="onClick"
-        android:textSize="15dp"
-        android:textColor="@color/green"
         android:text="check updates"
-        android:textAllCaps="true"/>
+        android:textAllCaps="true"
+        android:textColor="@color/green"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tl_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/teacher_login_but_upload"
+        android:layout_alignLeft="@+id/teacher_login_but_upload"
+        android:layout_alignRight="@+id/teacher_login_but_upload"
+        android:layout_alignStart="@+id/teacher_login_but_upload"
+        android:layout_below="@+id/view2"
+        android:layout_marginTop="15dp"
+        android:text="No file selected" />
 
 </RelativeLayout>
