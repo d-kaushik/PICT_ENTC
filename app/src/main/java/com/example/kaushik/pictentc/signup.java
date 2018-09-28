@@ -37,7 +37,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
 
         fname=(EditText)findViewById(R.id.sign_fName);
         lname=(EditText)findViewById(R.id.sign_lname);
-        otp=(EditText)findViewById(R.id.sign_otp);
         sign=(Button)findViewById(R.id.sign_signup);
         enroll_no=(EditText)findViewById(R.id.sign_enrollNo);
         roll_no=(EditText)findViewById(R.id.sign_rollNo);
