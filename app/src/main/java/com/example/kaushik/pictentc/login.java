@@ -42,8 +42,14 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     protected void onStart() {
         super.onStart();
         if(mAuth.getCurrentUser()!=null){
-            finish();
-            startActivity(new Intent(this,Front.class));
+            if(mAuth.getCurrentUser().getEmail().equals("teachers.pict@gmail.com")){
+                startActivity(new Intent(this,Teachers_login.class));
+                finish();
+            }else{
+                finish();
+                startActivity(new Intent(this,Front.class));
+            }
+
         }
     }
 
@@ -130,6 +136,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
                     finish();
+                    Toast.makeText(getApplicationContext(),mAuth.getCurrentUser().getEmail(),Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(login.this, Teachers_login.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//back does not come to login
                     startActivity(intent);

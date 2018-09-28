@@ -48,6 +48,16 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     ProgressDialog progressDialog;
     String year,sub,type;
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(FirebaseAuth.getInstance().getCurrentUser()==null){
+            finish();
+            startActivity(new Intent(this,MainActivity.class));
+        }
+
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

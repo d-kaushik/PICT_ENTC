@@ -55,8 +55,17 @@ public class verify extends AppCompatActivity implements View.OnClickListener {
         if(mAuth.getCurrentUser()==null){
             finish();
             startActivity(new Intent(this,login.class));
+        }else/* if(mAuth.getCurrentUser().getEmail().equals("teachers.pict@gmail.com")){
+            startActivity(new Intent(this,Teachers_login.class));
+            finish();
+        }else*/ if(mAuth.getCurrentUser().isEmailVerified()){
+            finish();
+            startActivity(new Intent(this, Front.class));
+
         }
     }
+
+
 
     private void userVerify() {
         progressBar.setVisibility(View.VISIBLE);
