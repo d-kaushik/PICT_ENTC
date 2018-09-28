@@ -83,15 +83,15 @@ public class login extends AppCompatActivity implements View.OnClickListener {
                     startActivity(intent);
                     /*if(user.isEmailVerified()){
                         finish();
-                        Intent intent=new Intent(login.this, Front.class);
-                        startActivity(intent);
+                        Intent intent1=new Intent(login.this, Front.class);
+                        startActivity(intent1);
                     }
-                    else{
+                    else if(!(user.isEmailVerified())){
                         finish();
                         Toast.makeText(getApplicationContext(),"VERIFY USER EMAIL",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(login.this,verify.class));
-                    }
-*/
+                    }*/
+
 
                 } else {
                     Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
@@ -162,7 +162,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             }
             case R.id.login:
             {
-                if((username.getText().toString().trim().equals("teachers.entc@pict.edu")))
+                if((username.getText().toString().trim().equals("teachers.pict@gmail.com")))
                 {
                     teachersLogin();
                 }

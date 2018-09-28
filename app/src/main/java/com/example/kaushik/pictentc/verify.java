@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -64,13 +65,18 @@ public class verify extends AppCompatActivity implements View.OnClickListener {
             public void onComplete(@NonNull Task<Void> task) {
                 progressBar.setVisibility(View.GONE);
                 if(task.isSuccessful()){
+                    Toast.makeText(getApplicationContext(),"Verification Email sent",Toast.LENGTH_LONG).show();
                     FirebaseAuth.getInstance().signOut();
                     finish();
-                    startActivity(new Intent(verify.this,login.class));
+                    startActivity(new Intent(verify.this,MainActivity.class));
                 }
             }
         });
     }
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.teachers_login_option, menu);

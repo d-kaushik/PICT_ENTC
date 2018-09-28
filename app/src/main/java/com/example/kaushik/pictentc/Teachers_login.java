@@ -38,7 +38,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class Teachers_login extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    Spinner spinner_sub;
+    Spinner spinner_sub,spinner_year,spinner_type;
     //ProgressBar progressBar;
     Button button_upload, button_select;
     TextView status;
@@ -46,6 +46,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     FirebaseDatabase database;
     Uri pdfUri;//URL for local storage
     ProgressDialog progressDialog;
+    String year,sub,type;
 
 
     @Override
@@ -85,9 +86,9 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         });
 
 
-        Spinner spinner_year = (Spinner) findViewById(R.id.teacher_login_spinner_year);
+        spinner_year = (Spinner) findViewById(R.id.teacher_login_spinner_year);
         spinner_sub = (Spinner) findViewById(R.id.teacher_login_spinner_subject);
-        Spinner spinner_type = (Spinner) findViewById(R.id.teacher_login_spinner_type);
+        spinner_type = (Spinner) findViewById(R.id.teacher_login_spinner_type);
 
         ArrayAdapter<CharSequence> adapter_year = ArrayAdapter.createFromResource(this, R.array.Year, R.layout.support_simple_spinner_dropdown_item);
         adapter_year.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
@@ -106,9 +107,13 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         progressDialog.setTitle("Uploading File...");
         progressDialog.setProgress(0);
         progressDialog.show();
+        year=spinner_year.getSelectedItem().toString();
+        sub=spinner_sub.getSelectedItem().toString();
+        type=spinner_type.getSelectedItem().toString();
+
         final String fileName = System.currentTimeMillis() + "";
         StorageReference storageReference = storage.getReference();//root path
-        storageReference.child("Uploads").child(fileName).putFile(pdfUri)
+        storageReference.child("Uploads").child(year).child(sub).child(type).child(fileName).putFile(pdfUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -143,7 +148,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
             }
 
         });
-        progressDialog.dismiss();
+
 
     }
 
@@ -171,7 +176,8 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         //user has selected the file or not checking
         if (requestCode == 5 && resultCode == RESULT_OK && data != null) {
             pdfUri = data.getData();//URI of selected file
-            status.setText("File Selected:" + data.getData().getLastPathSegment());
+            Toast.makeText(getApplicationContext(),"File Selected:" + data.getData().getLastPathSegment(),Toast.LENGTH_LONG).show();
+
         } else {
             Toast.makeText(getApplicationContext(), "Please Select a File", Toast.LENGTH_LONG).show();
         }
@@ -204,6 +210,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
             spinner_sub.setOnItemSelectedListener(this);
 
         }
+        status.setText(spinner_year.getSelectedItem().toString()+" "+spinner_sub.getSelectedItem().toString()+" "+spinner_type.getSelectedItem().toString());
 
 
     }
