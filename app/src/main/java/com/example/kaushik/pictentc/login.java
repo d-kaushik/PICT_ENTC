@@ -154,7 +154,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
         switch (view.getId()){
             case R.id.sign_up:
             {
-                finish();
+
                 Intent intent = new Intent(this, signup.class);
                 startActivity(intent);
                 break;

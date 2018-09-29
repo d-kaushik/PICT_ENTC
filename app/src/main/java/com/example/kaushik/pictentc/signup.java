@@ -85,7 +85,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
             lname.requestFocus();
             return;
         }
-
         if (enroll_no.getText().toString().isEmpty()) {
             enroll_no.setError("Enter enrollment number");
             enroll_no.requestFocus();
@@ -201,6 +200,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
     }
     private boolean check() {
         int k = 0,y=1,z=1,g=1,u=1;
+
         if (fname.getText().toString().isEmpty()) {
             fname.setError("Enter first name");
             k++;
