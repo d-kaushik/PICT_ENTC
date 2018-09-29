@@ -23,7 +23,7 @@
             android:layout_marginRight="30dp"
             android:layout_marginTop="30dp"
             android:ems="10"
-            android:hint="Username"
+            android:hint="E-mail"
             android:inputType="textEmailAddress"
 
             android:textColorLink="@color/dark_blue"
