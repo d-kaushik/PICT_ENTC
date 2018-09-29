@@ -20,10 +20,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         EditText editText=(EditText)findViewById(R.id.login_username);
-        InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.hideSoftInputFromWindow(editText.getWindowToken(),InputMethodManager.RESULT_HIDDEN);
+        //InputMethodManager imm=(InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        //imm.hideSoftInputFromWindow(editText.getWindowToken(),InputMethodManager.RESULT_HIDDEN);
     }
-
+    /*
     @Override
     public void onBackPressed() {
 
@@ -33,10 +33,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser()!=null){
-            finish();
+
             startActivity(new Intent(this,Front.class));
+            finish();
         }
-    }
+    }*/
 
     public void click(View view)
     {

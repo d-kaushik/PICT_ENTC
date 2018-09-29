@@ -38,7 +38,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    @Override
+    /*@Override
     protected void onStart() {
         super.onStart();
         if(mAuth.getCurrentUser()!=null){
@@ -51,7 +51,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
             }
 
         }
-    }
+    }*/
 
     private void userLogin() {
         String mail=username.getText().toString().trim();

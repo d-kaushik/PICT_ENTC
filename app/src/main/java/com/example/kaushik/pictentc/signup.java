@@ -171,6 +171,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                                         Intent intent=new Intent(signup.this, verify.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                         startActivity(intent);
+                                        finish();
                                         Toast.makeText(getApplicationContext(),"USER registered",Toast.LENGTH_LONG).show();
 
                                     }

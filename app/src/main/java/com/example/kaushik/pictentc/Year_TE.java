@@ -52,19 +52,77 @@ public class Year_TE extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"MC",Toast.LENGTH_SHORT).show();
                 }
 
                 else if(id==R.id.te_dsp)
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"DSP",Toast.LENGTH_SHORT).show();
                 }
 
                 else if(id==R.id.te_dc)
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"DC",Toast.LENGTH_SHORT).show();
                 }
+                else if(id==R.id.te_em)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"EM",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.te_mecx)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"MECX",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.te_esd)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"ESD",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.te_es)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"ES and Mini Project",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.te_itccn)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"ITCCN",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.te_pe)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"PE",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.te_bm)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"BM",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.te_spos)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"SPOS",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.te_ap)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_TE.this,"AP",Toast.LENGTH_SHORT).show();
+                }
+
                 dl.closeDrawer(GravityCompat.START);
 
                 return true;

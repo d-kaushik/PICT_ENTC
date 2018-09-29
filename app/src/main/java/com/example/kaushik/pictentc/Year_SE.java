@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class Year_SE extends AppCompatActivity {
 
@@ -49,7 +50,75 @@ public class Year_SE extends AppCompatActivity {
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"DSA",Toast.LENGTH_SHORT).show();
                 }
+                else if(id==R.id.se_ac)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"AC",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_cs)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"CS",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_ic)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"IC",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_esd)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"ESD",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_oop)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"OOP",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_m3)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"M-3",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_de)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"DE",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_ecm)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"ECM",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_edc)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"EDC",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_emit)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"EMIT",Toast.LENGTH_SHORT).show();
+                }
+                else if(id==R.id.se_sns)
+                {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            new fragment_te()).commit();
+                    Toast.makeText(Year_SE.this,"SNS",Toast.LENGTH_SHORT).show();
+                }
+
                 dl.closeDrawer(GravityCompat.START);
 
                 return true;
