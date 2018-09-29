@@ -20,7 +20,6 @@
         android:textStyle="bold"
         android:text="Assignment"
         android:onClick="onClick"/>
-
     <Button
         android:id="@+id/but_university_ppr"
         android:layout_width="match_parent"
@@ -35,8 +34,6 @@
         android:textStyle="bold"
         android:textAllCaps="false"
         android:onClick="onClick"/>
-
-
     <Button
         android:id="@+id/but_unit_test_ppr"
         android:layout_width="match_parent"
@@ -51,7 +48,6 @@
         android:textStyle="bold"
         android:text="Unit test"
         android:onClick="onClick"/>
-
     <Button
         android:id="@+id/but_other"
         android:layout_width="match_parent"
@@ -67,9 +63,12 @@
         android:textAllCaps="false"
         android:onClick="onClick"/>
 
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="130dp"
-        android:id="@+id/fragment_container_option"></FrameLayout>
+        android:id="@+id/fragment_container_option">
+
+        </FrameLayout>
 </RelativeLayout>

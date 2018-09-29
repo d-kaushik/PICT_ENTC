@@ -44,6 +44,7 @@ public class fragment_te extends Fragment implements View.OnClickListener {
 
     }
 
+
     public void onClick(View view) {
 
          switch (view.getId())
@@ -79,5 +80,7 @@ public class fragment_te extends Fragment implements View.OnClickListener {
          }
 
     }
+
+
 }
 

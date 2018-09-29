@@ -135,6 +135,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "File Uploaded", Toast.LENGTH_LONG).show();
+                                    progressDialog.dismiss();
                                 } else {
                                     Toast.makeText(getApplicationContext(), "File Not Uploaded", Toast.LENGTH_LONG).show();
 
@@ -154,10 +155,13 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                 //track progress
                 //progress bar
                 int currentProgress = (int) (100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+
                 progressDialog.setProgress(currentProgress);
+
             }
 
         });
+
 
 
     }
@@ -186,7 +190,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         //user has selected the file or not checking
         if (requestCode == 5 && resultCode == RESULT_OK && data != null) {
             pdfUri = data.getData();//URI of selected file
-            Toast.makeText(getApplicationContext(),"File Selected:" + data.getData().getLastPathSegment(),Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"File Selected:" + data.getData().getLastPathSegment(),Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(getApplicationContext(), "Please Select a File", Toast.LENGTH_LONG).show();
