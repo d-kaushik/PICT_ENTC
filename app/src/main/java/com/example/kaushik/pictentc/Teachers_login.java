@@ -121,7 +121,8 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         sub=spinner_sub.getSelectedItem().toString();
         type=spinner_type.getSelectedItem().toString();
 
-        final String fileName = System.currentTimeMillis() + "";
+        final String fileName = System.currentTimeMillis() + ".pdf";
+        final String fileName1= System.currentTimeMillis()+"";
         StorageReference storageReference = storage.getReference();//root path
         storageReference.child("Uploads").child(year).child(sub).child(type).child(fileName).putFile(pdfUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -130,7 +131,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                         String url = taskSnapshot.getDownloadUrl().toString();
                         //store in database
                         DatabaseReference databaseReference = database.getReference();
-                        databaseReference.child(fileName).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child(year).child(sub).child(type).child(fileName1).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
@@ -235,7 +236,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     }
 
 
-   public void onClick(View view)
+    public void onClick(View view)
     {
         Intent intent=new Intent(this,Front.class);
         startActivity(intent);
@@ -262,3 +263,4 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         return super.onOptionsItemSelected(item);
     }
 }
+
