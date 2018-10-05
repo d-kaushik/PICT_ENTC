@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Year_BE extends AppCompatActivity {
-
+    String Year,Sub;
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
 
@@ -21,6 +21,8 @@ public class Year_BE extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_year__be);
+        Bundle b=getIntent().getExtras();
+        Year=b.getString("Year");
 
         dl=(DrawerLayout)findViewById(R.id.dl);
         abdt=new ActionBarDrawerToggle(this,dl, R.string.open, R.string.close);
@@ -50,8 +52,14 @@ public class Year_BE extends AppCompatActivity {
 
                 if(id==R.id.be_vlsi)
                 {
+                    Sub="VLSI";
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"VLSI",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_ai)

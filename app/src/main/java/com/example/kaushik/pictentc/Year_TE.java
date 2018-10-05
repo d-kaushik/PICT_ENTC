@@ -13,6 +13,7 @@ import android.widget.TabHost;
 import android.widget.Toast;
 
 public class Year_TE extends AppCompatActivity {
+    String Year,Sub;
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
@@ -21,6 +22,8 @@ public class Year_TE extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_year__te);
+        Bundle b=getIntent().getExtras();
+        Year=b.getString("Year");
 
         dl=(DrawerLayout)findViewById(R.id.dl);
         abdt=new ActionBarDrawerToggle(this,dl, R.string.open, R.string.close);
@@ -50,15 +53,32 @@ public class Year_TE extends AppCompatActivity {
 
                 if(id==R.id.te_mc)
                 {
+                    Sub="MC";
+
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
+
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
-                    Toast.makeText(Year_TE.this,"MC",Toast.LENGTH_SHORT).show();
+                            info).commit();
+                    Toast.makeText(Year_TE.this,Year+" "+Sub,Toast.LENGTH_SHORT).show();
                 }
 
                 else if(id==R.id.te_dsp)
                 {
+                    Sub="DSP";
+
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"DSP",Toast.LENGTH_SHORT).show();
                 }
 

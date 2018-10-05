@@ -74,16 +74,19 @@ public class Front extends AppCompatActivity {
         if(view.getId()==R.id.but_se)
         {
             Intent intent=new Intent(this,Year_SE.class);
+            intent.putExtra("Year","SE");
             startActivity(intent);
         }
         else if(view.getId()==R.id.but_te)
         {
             Intent intent=new Intent(this,Year_TE.class);
+            intent.putExtra("Year","TE");
             startActivity(intent);
         }
         else if(view.getId()==R.id.but_be)
         {
             Intent intent=new Intent(this,Year_BE.class);
+            intent.putExtra("Year","BE");
             startActivity(intent);
         }
 

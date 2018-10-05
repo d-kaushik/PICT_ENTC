@@ -17,7 +17,9 @@ import android.widget.Toast;
 
 public class fragment_te extends Fragment implements View.OnClickListener {
 
-     @Nullable
+    String Year,Sub,option;
+
+    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
@@ -31,6 +33,12 @@ public class fragment_te extends Fragment implements View.OnClickListener {
         unit_test.setOnClickListener(this);
         university.setOnClickListener(this);
         other.setOnClickListener(this);
+        Bundle bundle=this.getArguments();
+        if(bundle!=null){
+            Year=bundle.getString("Year");
+            Sub=this.getArguments().getString("Sub");
+            //Toast.makeText(getActivity(),Year+" "+Sub+"1",Toast.LENGTH_SHORT).show();
+        }
 
 
 
@@ -43,6 +51,13 @@ public class fragment_te extends Fragment implements View.OnClickListener {
         return view;
 
     }
+    @Override
+    public void onStart() {
+        super.onStart();
+
+
+    }
+
 
 
     public void onClick(View view) {
@@ -51,30 +66,58 @@ public class fragment_te extends Fragment implements View.OnClickListener {
          {
              case R.id.but_assign:
              {
+                 option="Assignment";
+                 Bundle bundle=new Bundle();
+                 bundle.putString("Year",Year);
+                 bundle.putString("Sub",Sub);
+                 bundle.putString("option",option);
 
+                 Fragment_Assignment assignment=new Fragment_Assignment();
+                 assignment.setArguments(bundle);
                  FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-                 ft.replace(R.id.fragment_container_option,new Fragment_Assignment()).commit();
+                 ft.replace(R.id.fragment_container_option,assignment).commit();
                  break;
              }
              case R.id.but_university_ppr:
              {
+                 option="University papers";
+                 Bundle bundle=new Bundle();
+                 bundle.putString("Year",Year);
+                 bundle.putString("Sub",Sub);
+                 bundle.putString("option",option);
+
+                 Fragment_University_ppr uni=new Fragment_University_ppr();
+                 uni.setArguments(bundle);
 
                  FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-                 ft.replace(R.id.fragment_container_option,new Fragment_University_ppr()).commit();
+                 ft.replace(R.id.fragment_container_option,uni).commit();
                  break;
              }
              case R.id.but_unit_test_ppr:
              {
+                 option="Unit test Papers";
+                 Bundle bundle=new Bundle();
+                 bundle.putString("Year",Year);
+                 bundle.putString("Sub",Sub);
+                 bundle.putString("option",option);
 
+                 Fragment_Unit_test_ppr unit=new Fragment_Unit_test_ppr();
+                 unit.setArguments(bundle);
                  FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-                 ft.replace(R.id.fragment_container_option,new Fragment_Unit_test_ppr()).commit();
+                 ft.replace(R.id.fragment_container_option,unit).commit();
                  break;
              }
              case R.id.but_other:
              {
-
+                 option="Other";
+                 Bundle bundle=new Bundle();
+                 bundle.putString("Year",Year);
+                 bundle.putString("Sub",Sub);
+                 bundle.putString("option",option);
+                 Fragment_Other other=new Fragment_Other();
+                 other.setArguments(bundle);
                  FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-                 ft.replace(R.id.fragment_container_option,new Fragment_Other()).commit();
+                 ft.replace(R.id.fragment_container_option,other).commit();
                  break;
              }
          }
