@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 public class Fragment_Assignment extends Fragment {
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
+    {
+
+
         return inflater.inflate(R.layout.fragment_assignment,container,false);
     }
 }

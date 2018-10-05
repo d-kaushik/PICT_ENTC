@@ -48,7 +48,7 @@ public class Year_TE extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 int id=menuItem.getItemId();
 
-                if(id==R.id.te_mc)
+                if(id==R.id.te_mc )
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             new fragment_te()).commit();

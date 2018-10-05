@@ -34,6 +34,7 @@ public class fragment_te extends Fragment implements View.OnClickListener {
 
 
 
+
         if(savedInstanceState==null)
         {
 
@@ -51,7 +52,6 @@ public class fragment_te extends Fragment implements View.OnClickListener {
          {
              case R.id.but_assign:
              {
-
                  FragmentTransaction ft=getChildFragmentManager().beginTransaction();
                  ft.replace(R.id.fragment_container_option,new Fragment_Assignment()).commit();
                  break;
@@ -83,4 +83,6 @@ public class fragment_te extends Fragment implements View.OnClickListener {
 
 
 }
+
+
 
