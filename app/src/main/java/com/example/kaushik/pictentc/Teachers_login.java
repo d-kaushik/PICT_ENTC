@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -41,12 +42,13 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     Spinner spinner_sub,spinner_year,spinner_type;
     //ProgressBar progressBar;
     Button button_upload, button_select;
+    EditText file;
     TextView status;
     FirebaseStorage storage;
     FirebaseDatabase database;
     Uri pdfUri;//URL for local storage
     ProgressDialog progressDialog;
-    String year,sub,type;
+    String year,sub,type,file_name,fileName1,fileName;
 
     @Override
     protected void onStart() {
@@ -71,6 +73,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         status = (TextView) findViewById(R.id.tl_stat);
         storage = FirebaseStorage.getInstance();//returns obj of firebase storage
         database = FirebaseDatabase.getInstance();
+        file=(EditText)findViewById(R.id.tl_file_name);
 
         button_select.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,6 +89,11 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         button_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(file.getText().toString()==null){
+                    file.setError("Enter File Name");
+                    file.requestFocus();
+                    return;
+                }
                 if (pdfUri != null) {
                     upLoadFile(pdfUri);
                 } else {
@@ -120,9 +128,9 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         year=spinner_year.getSelectedItem().toString();
         sub=spinner_sub.getSelectedItem().toString();
         type=spinner_type.getSelectedItem().toString();
-
-        final String fileName = System.currentTimeMillis() + ".pdf";
-        final String fileName1= System.currentTimeMillis()+"";
+        file_name=file.getText().toString().trim();
+        fileName = file_name + ".pdf";
+        fileName1= file_name+"";
         StorageReference storageReference = storage.getReference();//root path
         storageReference.child("Uploads").child(year).child(sub).child(type).child(fileName).putFile(pdfUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
