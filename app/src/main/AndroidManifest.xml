@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kaushik.pictentc">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
-    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -48,7 +48,11 @@
             android:name=".Front"
             android:label=" " />
         <activity android:name=".Year_BE" />
-        <activity android:name=".verify"></activity>
+        <activity android:name=".verify" />
+
+        <activity android:name=".teachers_notice"
+            android:parentActivityName=".Teachers_login"
+            android:label="Notice "></activity>
     </application>
 
 </manifest>
