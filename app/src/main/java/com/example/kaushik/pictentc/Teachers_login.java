@@ -75,6 +75,8 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         database = FirebaseDatabase.getInstance();
         file=(EditText)findViewById(R.id.tl_file_name);
 
+
+
         button_select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,7 +93,6 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
             public void onClick(View view) {
                 if(file.getText().toString()==null){
                     file.setError("Enter File Name");
-                    file.requestFocus();
                     return;
                 }
                 if (pdfUri != null) {
@@ -139,7 +140,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                         String url = taskSnapshot.getDownloadUrl().toString();
                         //store in database
                         DatabaseReference databaseReference = database.getReference();
-                        databaseReference.child(year).child(sub).child(type).child(fileName1).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child("Uploads").child(year).child(sub).child(type).child(fileName1).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {

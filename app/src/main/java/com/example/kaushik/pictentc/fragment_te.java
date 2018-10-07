@@ -1,5 +1,6 @@
 package com.example.kaushik.pictentc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -66,16 +67,24 @@ public class fragment_te extends Fragment implements View.OnClickListener {
          {
              case R.id.but_assign:
              {
-                 option="Assignment";
+                 option="Assignments";
                  Bundle bundle=new Bundle();
                  bundle.putString("Year",Year);
                  bundle.putString("Sub",Sub);
                  bundle.putString("option",option);
+                 Intent intent=new Intent(getContext(),recycler.class);
+                 intent.putExtra("Year",Year);
+                 intent.putExtra("Sub",Sub);
+                 intent.putExtra("option",option);
+                 startActivity(intent);
+
+
 
                  Fragment_Assignment assignment=new Fragment_Assignment();
                  assignment.setArguments(bundle);
                  FragmentTransaction ft=getChildFragmentManager().beginTransaction();
                  ft.replace(R.id.fragment_container_option,assignment).commit();
+                 startActivity(intent);
                  break;
              }
              case R.id.but_university_ppr:
