@@ -247,8 +247,17 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
 
     public void onClick(View view)
     {
-        Intent intent=new Intent(this,Front.class);
-        startActivity(intent);
+        if(view.getId()==R.id.teacher_login_txt_student_gui)
+        {
+            Intent intent=new Intent(this,Front.class);
+            startActivity(intent);
+        }
+        if(view.getId()==R.id.teacher_login_txt_notice)
+        {
+            Intent intent=new Intent(this,teachers_notice.class);
+            startActivity(intent);
+        }
+
     }
 
     @Override

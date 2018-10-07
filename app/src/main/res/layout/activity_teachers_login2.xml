@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="70dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="Year :"
             android:textSize="20dp" />
 
@@ -38,7 +38,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"></Spinner>
+            android:layout_marginTop="10dp"></Spinner>
 
     </LinearLayout>
 
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp">
 
 
         <TextView
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="70dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="45dp"
             android:text="Subject :"
             android:textSize="20dp" />
 
@@ -66,7 +66,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="60dp"></Spinner>
+            android:layout_marginTop="45dp"></Spinner>
 
     </LinearLayout>
 
@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="0dp"
         android:id="@+id/linearLayout">
 
 
@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="70dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="100dp"
             android:text="Type :"
             android:textSize="20dp" />
 
@@ -95,7 +95,7 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="120dp"></Spinner>
+            android:layout_marginTop="100dp"></Spinner>
 
     </LinearLayout>
 
@@ -103,7 +103,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/black"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="160dp"
         android:id="@+id/view4"></View>
 
 
@@ -141,7 +141,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/black"
-        android:layout_marginTop="320dp"
+        android:layout_marginTop="290dp"
         android:id="@+id/view3">
     </View>
 
@@ -154,9 +154,8 @@
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
         android:hint="Enter the file name"
-        android:layout_alignTop="@id/view3"
+        android:layout_marginTop="300dp"
         android:gravity="center"
-        android:inputType="textCapCharacters"
         />
 
     <Button
@@ -177,7 +176,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/black"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="430dp"
         android:id="@+id/view2">
     </View>
 
@@ -190,6 +189,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/teacher_login_txt_notice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -198,6 +198,7 @@
             android:textAllCaps="true"
             android:textColor="@color/red"
             android:textSize="15dp"
+            android:onClick="onClick"
             android:textStyle="bold" />
 
 
@@ -213,12 +214,9 @@
             android:textSize="15dp"
             android:onClick="onClick"
             android:textStyle="bold" />
-
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="." />
+            android:layout_height="wrap_content" />
 
 
     </LinearLayout>
