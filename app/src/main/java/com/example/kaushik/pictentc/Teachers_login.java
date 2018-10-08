@@ -80,6 +80,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
 
 
 
+
         button_select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -103,7 +104,6 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                 } else {
                     Toast.makeText(getApplicationContext(), "Select a file", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
 
@@ -135,6 +135,8 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         file_name=file.getText().toString().trim();
         fileName = file_name + ".pdf";
         fileName1= file_name+"";
+
+        final String time=System.currentTimeMillis()+"";
         StorageReference storageReference = storage.getReference();//root path
         storageReference.child("Uploads").child(year).child(sub).child(type).child(fileName).putFile(pdfUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -142,8 +144,11 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         String url = taskSnapshot.getDownloadUrl().toString();
                         //store in database
+                        file file=new file();
+                        file.setFileName(fileName1);
+                        file.setUrl(url);
                         DatabaseReference databaseReference = database.getReference();
-                        databaseReference.child("Uploads").child(year).child(sub).child(type).child(fileName1).setValue(url).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        databaseReference.child("Uploads").child(year).child(sub).child(type).child(time).setValue(file).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {

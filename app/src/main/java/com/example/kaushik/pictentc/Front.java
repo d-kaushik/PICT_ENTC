@@ -19,10 +19,14 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Front extends AppCompatActivity {
 
     private DrawerLayout dl;
+    path path1=new path();
+
     private ActionBarDrawerToggle abdt;
+    String Year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front);
 
@@ -75,18 +79,21 @@ public class Front extends AppCompatActivity {
         {
             Intent intent=new Intent(this,Year_SE.class);
             intent.putExtra("Year","SE");
+            path1.setYear("SE");
             startActivity(intent);
         }
         else if(view.getId()==R.id.but_te)
         {
             Intent intent=new Intent(this,Year_TE.class);
             intent.putExtra("Year","TE");
+            path1.setYear("TE");
             startActivity(intent);
         }
         else if(view.getId()==R.id.but_be)
         {
             Intent intent=new Intent(this,Year_BE.class);
             intent.putExtra("Year","BE");
+            path1.setYear("BE");
             startActivity(intent);
         }
 

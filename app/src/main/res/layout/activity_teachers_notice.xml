@@ -6,42 +6,66 @@
     android:layout_height="match_parent"
     tools:context="com.example.kaushik.pictentc.teachers_notice">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/tln_select_file"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Select File"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginRight="70dp"
-        android:background="@drawable/but_option"/>
-
-    <EditText
-        android:id="@+id/tln_file_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Enter File Name"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"/>
-
-        <Button
-            android:id="@+id/tln_upload_file"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Upload File"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginRight="70dp"
-            android:background="@drawable/but_option"/>
+            android:orientation="vertical">
 
-</LinearLayout>
+            <Button
+                android:id="@+id/tln_select_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/but_option"
+                android:text="Select File" />
+
+            <EditText
+                android:id="@+id/tln_file_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="60dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:hint="Enter File Name"
+                android:inputType="textPersonName" />
+
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/progress_bar_tln"
+                android:layout_below="@id/tln_file_name"
+                android:layout_marginTop="16dp" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_tln"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/button_upload"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/tln_upload_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="70dp"
+                android:layout_marginRight="70dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/but_option"
+                android:text="Upload File" />
+
+        </LinearLayout>
+    </ScrollView>
+
 </RelativeLayout>

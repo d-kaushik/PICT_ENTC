@@ -19,6 +19,7 @@ import android.widget.Toast;
 public class fragment_te extends Fragment implements View.OnClickListener {
 
     String Year,Sub,option;
+    path path=new path();
 
     @Nullable
     @Override
@@ -38,8 +39,12 @@ public class fragment_te extends Fragment implements View.OnClickListener {
         if(bundle!=null){
             Year=bundle.getString("Year");
             Sub=this.getArguments().getString("Sub");
-            //Toast.makeText(getActivity(),Year+" "+Sub+"1",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(),Year+"1",Toast.LENGTH_SHORT).show();
         }
+
+
+
+
 
 
 
@@ -52,12 +57,6 @@ public class fragment_te extends Fragment implements View.OnClickListener {
         return view;
 
     }
-    @Override
-    public void onStart() {
-        super.onStart();
-
-
-    }
 
 
 
@@ -67,7 +66,9 @@ public class fragment_te extends Fragment implements View.OnClickListener {
          {
              case R.id.but_assign:
              {
+                 checknull();
                  option="Assignments";
+                 Toast.makeText(getContext(),Year+Sub+option,Toast.LENGTH_LONG).show();
                  Bundle bundle=new Bundle();
                  bundle.putString("Year",Year);
                  bundle.putString("Sub",Sub);
@@ -84,16 +85,23 @@ public class fragment_te extends Fragment implements View.OnClickListener {
                  assignment.setArguments(bundle);
                  FragmentTransaction ft=getChildFragmentManager().beginTransaction();
                  ft.replace(R.id.fragment_container_option,assignment).commit();
-                 startActivity(intent);
                  break;
              }
              case R.id.but_university_ppr:
              {
+                 checknull();
                  option="University papers";
+                 Toast.makeText(getContext(),Year+Sub+option,Toast.LENGTH_LONG).show();
+
                  Bundle bundle=new Bundle();
                  bundle.putString("Year",Year);
                  bundle.putString("Sub",Sub);
                  bundle.putString("option",option);
+                 Intent intent=new Intent(getContext(),recycler.class);
+                 intent.putExtra("Year",Year);
+                 intent.putExtra("Sub",Sub);
+                 intent.putExtra("option",option);
+                 startActivity(intent);
 
                  Fragment_University_ppr uni=new Fragment_University_ppr();
                  uni.setArguments(bundle);
@@ -104,11 +112,19 @@ public class fragment_te extends Fragment implements View.OnClickListener {
              }
              case R.id.but_unit_test_ppr:
              {
+                 checknull();
                  option="Unit test Papers";
+                 Toast.makeText(getContext(),Year+Sub+option,Toast.LENGTH_LONG).show();
+
                  Bundle bundle=new Bundle();
                  bundle.putString("Year",Year);
                  bundle.putString("Sub",Sub);
                  bundle.putString("option",option);
+                 Intent intent=new Intent(getContext(),recycler.class);
+                 intent.putExtra("Year",Year);
+                 intent.putExtra("Sub",Sub);
+                 intent.putExtra("option",option);
+                 startActivity(intent);
 
                  Fragment_Unit_test_ppr unit=new Fragment_Unit_test_ppr();
                  unit.setArguments(bundle);
@@ -118,11 +134,20 @@ public class fragment_te extends Fragment implements View.OnClickListener {
              }
              case R.id.but_other:
              {
+                 checknull();
                  option="Other";
+                 Toast.makeText(getContext(),Year+Sub+option,Toast.LENGTH_LONG).show();
+
                  Bundle bundle=new Bundle();
                  bundle.putString("Year",Year);
                  bundle.putString("Sub",Sub);
                  bundle.putString("option",option);
+                 Intent intent=new Intent(getContext(),recycler.class);
+                 intent.putExtra("Year",Year);
+                 intent.putExtra("Sub",Sub);
+                 intent.putExtra("option",option);
+                 startActivity(intent);
+
                  Fragment_Other other=new Fragment_Other();
                  other.setArguments(bundle);
                  FragmentTransaction ft=getChildFragmentManager().beginTransaction();
@@ -131,6 +156,21 @@ public class fragment_te extends Fragment implements View.OnClickListener {
              }
          }
 
+    }
+
+
+
+    public void checknull() {
+        if(Year==null||Sub==null){
+            Year=path.getYear();
+            if(Year=="SE"){
+                Sub="DSA";
+            }else if(Year=="TE"){
+                Sub="MC";
+            }else if(Year=="BE"){
+                Sub="VLSI";
+            }
+        }
     }
 
 

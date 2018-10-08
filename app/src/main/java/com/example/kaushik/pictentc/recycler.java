@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
@@ -23,13 +24,15 @@ import java.util.ArrayList;
 public class recycler extends AppCompatActivity {
     String Year,Sub,option;
     RecyclerView recyclerView;
-    DatabaseReference databaseReference;
+    path path=new path();
+
+    DatabaseReference databaseReference,reference;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view);
         Bundle b=getIntent().getExtras();
-        Year=b.getString("Year");
+        Year=path.getYear();
         Sub=b.getString("Sub");
         option=b.getString("option");
         recyclerView=findViewById(R.id.recyclerView);
@@ -37,25 +40,38 @@ public class recycler extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(recycler.this));
         Adapter adapter=new Adapter(recyclerView,recycler.this,new ArrayList<String>(),new ArrayList<String>());
         recyclerView.setAdapter(adapter);
-        String fileName="ABC";
-        String url="www.google.co.in";
-        ((Adapter)recyclerView.getAdapter()).update(fileName,url);
 
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("TE");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+
+
+
+
+        databaseReference= FirebaseDatabase.getInstance().getReference();
+        reference=databaseReference.child("Uploads").child(Year).child(Sub).child(option);
+        reference.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                for(DataSnapshot post : dataSnapshot.getChildren()){
-                    String fileName=post.getKey();
-                    Toast.makeText(recycler.this,fileName,Toast.LENGTH_LONG).show();
-                    String url=post.getValue(String.class);
-                    ((Adapter)recyclerView.getAdapter()).update(fileName,url);
+                file file1=new file();
+                file1=dataSnapshot.getValue(file.class);
+                String fileName=file1.getFileName();
+                String url=file1.getUrl();
+                ((Adapter)recyclerView.getAdapter()).update(fileName,url);
 
+            }
 
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-                }
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
             }
 
@@ -65,6 +81,6 @@ public class recycler extends AppCompatActivity {
             }
         });
 
-
     }
+
 }

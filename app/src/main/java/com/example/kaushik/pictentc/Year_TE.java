@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 public class Year_TE extends AppCompatActivity {
     String Year,Sub;
+    path path=new path();
 
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
@@ -32,6 +33,7 @@ public class Year_TE extends AppCompatActivity {
         dl.addDrawerListener(abdt);
         abdt.syncState();
 
+
         final NavigationView nav_view=(NavigationView)findViewById(R.id.nav_view);
 
         if(savedInstanceState==null)
@@ -41,6 +43,8 @@ public class Year_TE extends AppCompatActivity {
                     new fragment_te()).commit();
             nav_view.setCheckedItem(R.id.te_mc);
         }
+
+
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -54,7 +58,7 @@ public class Year_TE extends AppCompatActivity {
                 if(id==R.id.te_mc )
                 {
                     Sub="MC";
-
+                    //
                     fragment_te info=new fragment_te();
                     Bundle bundle=new Bundle();
                     bundle.putString("Year",Year);
@@ -70,7 +74,7 @@ public class Year_TE extends AppCompatActivity {
                 else if(id==R.id.te_dsp)
                 {
                     Sub="DSP";
-
+                    //
                     fragment_te info=new fragment_te();
                     Bundle bundle=new Bundle();
                     bundle.putString("Year",Year);
@@ -84,62 +88,132 @@ public class Year_TE extends AppCompatActivity {
 
                 else if(id==R.id.te_dc)
                 {
+                    Sub="DC";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
+
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"DC",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_em)
                 {
+                    Sub="EM";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"EM",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_mecx)
                 {
+                    Sub="MECX";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"MECX",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_esd)
                 {
+                    Sub="ESD";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"ESD",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_es)
                 {
+                    Sub="ES and Mini Project";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"ES and Mini Project",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_itccn)
                 {
+                    Sub="ITCCN";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"ITCCN",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_pe)
                 {
+                    Sub="PE";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"PE",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_bm)
                 {
+                    Sub="BM";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"BM",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_spos)
-                {
+                {   Sub="SPOS";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"SPOS",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.te_ap)
                 {
+                    Sub="AP";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_TE.this,"AP",Toast.LENGTH_SHORT).show();
                 }
 
@@ -147,8 +221,15 @@ public class Year_TE extends AppCompatActivity {
 
                 return true;
             }
+
         });
 
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
     }
 

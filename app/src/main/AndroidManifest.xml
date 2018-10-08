@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kaushik.pictentc">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -36,7 +36,7 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Year_TE" />
-        <activity android:name=".recycler"/>
+        <activity android:name=".recycler" />
         <activity
             android:name=".Teachers_login"
             android:label="Teacher&apos;s Login" />
@@ -50,10 +50,10 @@
             android:label=" " />
         <activity android:name=".Year_BE" />
         <activity android:name=".verify" />
-
-        <activity android:name=".teachers_notice"
-            android:parentActivityName=".Teachers_login"
-            android:label="Notice "></activity>
+        <activity
+            android:name=".teachers_notice"
+            android:label="Notice "
+            android:parentActivityName=".Teachers_login" />
     </application>
 
 </manifest>

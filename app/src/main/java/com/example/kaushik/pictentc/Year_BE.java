@@ -16,6 +16,8 @@ public class Year_BE extends AppCompatActivity {
     String Year,Sub;
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
+    NavigationView nav_view;
+    path path=new path();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class Year_BE extends AppCompatActivity {
         dl.addDrawerListener(abdt);
         abdt.syncState();
 
-        final NavigationView nav_view=(NavigationView)findViewById(R.id.nav_view);
+        nav_view=(NavigationView)findViewById(R.id.nav_view);
 
         if(savedInstanceState==null)
         {
@@ -53,6 +55,7 @@ public class Year_BE extends AppCompatActivity {
                 if(id==R.id.be_vlsi)
                 {
                     Sub="VLSI";
+                    //
                     fragment_te info=new fragment_te();
                     Bundle bundle=new Bundle();
                     bundle.putString("Year",Year);
@@ -64,104 +67,224 @@ public class Year_BE extends AppCompatActivity {
                 }
                 else if(id==R.id.be_ai)
                 {
+                    Sub="AI";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"AI",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_ave)
                 {
+                    Sub="AVE";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"AVE",Toast.LENGTH_SHORT).show();
                 }
                else if(id==R.id.be_bcs)
                 {
+                    Sub="BCS";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"BCS",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_bsp)
                 {
+                    Sub="BSP";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"BSP",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_cns)
                 {
+                    Sub="CNS";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"CNS",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_dip)
                 {
+                    Sub="DIP";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"DIP",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_emt)
                 {
+                    Sub="RMT";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"RMT",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_epd)
                 {
+                    Sub="EPD";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"EPD",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_esrtos)
                 {
+                    Sub="ESRTOS";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"ESRTOS",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_mc)
                 {
+                    Sub="MC";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"MC",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_iot)
                 {
+                    Sub="IOT";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"IOT",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_namo)
                 {
+                    Sub="NAMO";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"NAMO",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_plc)
                 {
+                    Sub="PLC";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"PLC",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_project)
                 {
+                    Sub="Project";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"Project",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_sasp)
                 {
+                    Sub="SASP";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"SASP",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_sc)
                 {
+                    Sub="SC";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
                     Toast.makeText(Year_BE.this,"SC",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_wn)
                 {
+                    Sub="WN";
+                    //
+                    fragment_te info=new fragment_te();
+                    Bundle bundle=new Bundle();
+                    bundle.putString("Year",Year);
+                    bundle.putString("Sub",Sub);
+                    info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new fragment_te()).commit();
+                            info).commit();
+
                     Toast toast= Toast.makeText(Year_BE.this,"WN",Toast.LENGTH_SHORT);
                     toast.show();
                 }
