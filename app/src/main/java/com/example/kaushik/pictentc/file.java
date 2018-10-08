@@ -5,7 +5,15 @@ package com.example.kaushik.pictentc;
  */
 
 public class file {
-    String fileName,url;
+    String fileName,url,mkey;
+
+    public String getMkey() {
+        return mkey;
+    }
+
+    public void setMkey(String mkey) {
+        this.mkey = mkey;
+    }
 
     public String getFileName() {
         return fileName;

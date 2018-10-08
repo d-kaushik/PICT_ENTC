@@ -138,7 +138,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
 
         final String time=System.currentTimeMillis()+"";
         StorageReference storageReference = storage.getReference();//root path
-        storageReference.child("Uploads").child(year).child(sub).child(type).child(fileName).putFile(pdfUri)
+        storageReference.child("Uploads").child(year).child(sub).child(type).child(time).child(fileName).putFile(pdfUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

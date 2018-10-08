@@ -25,8 +25,8 @@ import java.util.List;
 public class Notice extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
-    private String url;
-    FirebaseAuth mAuth;
+
+
     private ProgressBar mProgressCircle;
     private FirebaseStorage mStorage;
     private DatabaseReference mDatabaseRef;
@@ -48,7 +48,6 @@ public class Notice extends AppCompatActivity implements ImageAdapter.OnItemClic
 
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(Notice.this);
-        mAuth=FirebaseAuth.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Notice");
         mStorage=FirebaseStorage.getInstance();
         mDBListener=mDatabaseRef.addValueEventListener(new ValueEventListener() {
@@ -84,6 +83,8 @@ public class Notice extends AppCompatActivity implements ImageAdapter.OnItemClic
         Upload selectedItem=mUploads.get(position);
         final String selectedKey=selectedItem.getMkey();
         StorageReference imageRef=mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
+        Toast.makeText(this, imageRef.toString(), Toast.LENGTH_SHORT).show();
+
         imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
