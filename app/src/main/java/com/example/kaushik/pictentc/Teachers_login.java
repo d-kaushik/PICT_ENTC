@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -50,6 +51,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     ProgressDialog progressDialog;
     String year,sub,type,file_name,fileName1,fileName;
 
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -65,6 +67,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teachers_login2);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         //progressBar=(ProgressBar)findViewById(R.id.teacher_login_progress);
         //progressBar.setVisibility(View.GONE);
