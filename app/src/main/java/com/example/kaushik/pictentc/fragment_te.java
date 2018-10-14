@@ -20,6 +20,7 @@ public class fragment_te extends Fragment implements View.OnClickListener {
 
     String Year,Sub,option;
     path path=new path();
+    TextView textView;
 
     @Nullable
     @Override
@@ -30,6 +31,7 @@ public class fragment_te extends Fragment implements View.OnClickListener {
         assignment=(Button)view.findViewById(R.id.but_assign);
         university=(Button)view.findViewById(R.id.but_university_ppr);
         unit_test=(Button)view.findViewById(R.id.but_unit_test_ppr);
+        textView=(TextView)view.findViewById(R.id.textView);
         other=(Button)view.findViewById(R.id.but_other);
         assignment.setOnClickListener(this);
         unit_test.setOnClickListener(this);
@@ -39,16 +41,9 @@ public class fragment_te extends Fragment implements View.OnClickListener {
         if(bundle!=null){
             Year=bundle.getString("Year");
             Sub=this.getArguments().getString("Sub");
-            //Toast.makeText(getActivity(),Year+"1",Toast.LENGTH_SHORT).show();
+            textView.setText(Sub);
+
         }
-
-
-
-
-
-
-
-
         return view;
 
     }

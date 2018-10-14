@@ -54,7 +54,7 @@
             android:name=".teachers_notice"
             android:label="Notice "
             android:parentActivityName=".Teachers_login" />
-        <activity android:name=".pdf_view"></activity>
+        <activity android:name=".image_v"></activity>
     </application>
 
 </manifest>

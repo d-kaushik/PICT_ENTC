@@ -111,7 +111,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 context.startActivity(intent);
             }
 
-            Toast.makeText(context,Uri.parse(file.getUrl()).toString(),Toast.LENGTH_LONG).show();
+            //Toast.makeText(context,Uri.parse(file.getUrl()).toString(),Toast.LENGTH_LONG).show();
+
 
 
         }

@@ -51,7 +51,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
         Picasso.with(mContext)
                 .load(uploadCurrent.getImageUrl())
                 .fit()
+                .centerInside()
                 .into(holder.imageView);
+
+
     }
 
     @Override

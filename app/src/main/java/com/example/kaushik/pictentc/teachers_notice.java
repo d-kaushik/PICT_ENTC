@@ -77,6 +77,7 @@ public class teachers_notice extends AppCompatActivity {
         mButtonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(teachers_notice.this, "Upload in progress", Toast.LENGTH_SHORT).show();
                 } else {
@@ -114,6 +115,11 @@ public class teachers_notice extends AppCompatActivity {
     }
 
     private void uploadFile() {
+        if (mEditTextFileName.getText().toString().isEmpty()) {
+            mEditTextFileName.setError("Enter Notice name");
+            mEditTextFileName.requestFocus();
+            return;
+        }
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));

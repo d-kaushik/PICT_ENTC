@@ -74,6 +74,13 @@ public class Notice extends AppCompatActivity implements ImageAdapter.OnItemClic
     @Override
     public void onItemClick(int position) {
         //Toast.makeText(this,"CLICK AT"+position,Toast.LENGTH_LONG).show();
+        Upload selectedItem=mUploads.get(position);
+        String url=selectedItem.getImageUrl();
+        String name=selectedItem.getName();
+        Intent intent=new Intent(this,image_v.class);
+        intent.putExtra("url",url);
+        intent.putExtra("name",name);
+        startActivity(intent);
     }
 
 
@@ -83,7 +90,7 @@ public class Notice extends AppCompatActivity implements ImageAdapter.OnItemClic
         Upload selectedItem=mUploads.get(position);
         final String selectedKey=selectedItem.getMkey();
         StorageReference imageRef=mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
-        Toast.makeText(this, imageRef.toString(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, imageRef.toString(), Toast.LENGTH_SHORT).show();
 
         imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

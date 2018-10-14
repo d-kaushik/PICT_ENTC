@@ -36,6 +36,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
 public class Teachers_login extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -50,6 +51,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     Uri pdfUri;//URL for local storage
     ProgressDialog progressDialog;
     String year,sub,type,file_name,fileName1,fileName;
+    StorageTask mUploadTask;
 
 
     @Override
@@ -98,11 +100,10 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         button_upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(file.getText().toString()==null){
-                    file.setError("Enter File Name");
-                    return;
-                }
-                if (pdfUri != null) {
+
+                if (mUploadTask != null && mUploadTask.isInProgress()) {
+                    Toast.makeText(Teachers_login.this, "Upload in progress", Toast.LENGTH_SHORT).show();
+                } else if (pdfUri != null) {
                     upLoadFile(pdfUri);
                 } else {
                     Toast.makeText(getApplicationContext(), "Select a file", Toast.LENGTH_LONG).show();
@@ -127,6 +128,11 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     }
 
     private void upLoadFile(Uri pdfUri) {
+        if(file.getText().toString().isEmpty()){
+            file.setError("Enter File Name");
+            file.requestFocus();
+            return;
+        }
         progressDialog = new ProgressDialog(this);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
         progressDialog.setTitle("Uploading File...");
@@ -141,7 +147,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
 
         final String time=System.currentTimeMillis()+"";
         StorageReference storageReference = storage.getReference();//root path
-        storageReference.child("Uploads").child(year).child(sub).child(type).child(time).child(fileName).putFile(pdfUri)
+        mUploadTask=storageReference.child("Uploads").child(year).child(sub).child(type).child(time).child(fileName).putFile(pdfUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/be_vlsi"
-        android:title="VLSI Design and Tech">
+        android:title="VLSI">
     </item>
 
     <item

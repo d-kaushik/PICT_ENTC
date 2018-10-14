@@ -210,7 +210,7 @@ public class Year_BE extends AppCompatActivity {
                 }
                 else if(id==R.id.be_namo)
                 {
-                    Sub="NAMO";
+                    Sub="NANO";
                     //
                     fragment_te info=new fragment_te();
                     Bundle bundle=new Bundle();
@@ -219,7 +219,7 @@ public class Year_BE extends AppCompatActivity {
                     info.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             info).commit();
-                    Toast.makeText(Year_BE.this,"NAMO",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Year_BE.this,"NANO",Toast.LENGTH_SHORT).show();
                 }
                 else if(id==R.id.be_plc)
                 {

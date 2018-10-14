@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_blue_shade_2">
@@ -11,63 +10,78 @@
         android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/but_assign"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:background="@drawable/but_option"
-        android:layout_alignParentTop="true"
-        android:textAllCaps="false"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:text="Assignment"
-        android:onClick="onClick"/>
-    <Button
-        android:id="@+id/but_university_ppr"
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:gravity="center"
+            android:text="Subject"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold" />
 
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/but_option"
-        android:text="University Paper"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:onClick="onClick"/>
-    <Button
-        android:id="@+id/but_unit_test_ppr"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/but_option"
-        android:layout_alignParentTop="true"
-        android:textAllCaps="false"
-        android:textSize="16dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:textStyle="bold"
-        android:text="Unit test"
-        android:onClick="onClick"/>
-    <Button
-        android:id="@+id/but_other"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/but_option"
-        android:text="Other"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textAllCaps="false"
-        android:onClick="onClick"/>
+        <Button
+            android:id="@+id/but_assign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/but_option"
+            android:onClick="onClick"
+            android:text="Assignment"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/but_university_ppr"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/but_option"
+            android:onClick="onClick"
+            android:text="University Paper"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/but_unit_test_ppr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/but_option"
+            android:onClick="onClick"
+            android:text="Unit test"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/but_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/but_option"
+            android:onClick="onClick"
+            android:text="Other"
+            android:textAllCaps="false"
+            android:textSize="16dp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

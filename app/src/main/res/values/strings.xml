@@ -40,7 +40,7 @@
         <item>BM</item>
         <item>AP</item>
         <item>SPOS</item>
-        <item>ES N mini project</item>
+        <item>ES and Mini Project</item>
     </string-array>
 
     <string-array name="BE">
@@ -60,7 +60,7 @@
         <item>SASP</item>
         <item>SC</item>
         <item>BSP</item>
-        <item>Nano</item>
+        <item>NANO</item>
         <item>WN</item>
         <item>Project</item>
     </string-array>
