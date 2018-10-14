@@ -5,14 +5,19 @@
     android:layout_height="match_parent"
     android:background="@color/dark_blue_shade_2">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
 
     <Button
         android:id="@+id/but_assign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:background="@drawable/but_option"
         android:layout_alignParentTop="true"
         android:textAllCaps="false"
@@ -22,12 +27,13 @@
         android:onClick="onClick"/>
     <Button
         android:id="@+id/but_university_ppr"
+
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="200dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/but_option"
         android:text="University Paper"
         android:textSize="16dp"
@@ -38,13 +44,13 @@
         android:id="@+id/but_unit_test_ppr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/but_option"
         android:layout_alignParentTop="true"
         android:textAllCaps="false"
         android:textSize="16dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:textStyle="bold"
         android:text="Unit test"
         android:onClick="onClick"/>
@@ -53,9 +59,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="70dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="200dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/but_option"
         android:text="Other"
         android:textSize="16dp"
@@ -63,12 +69,6 @@
         android:textAllCaps="false"
         android:onClick="onClick"/>
 
+    </LinearLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="130dp"
-        android:id="@+id/fragment_container_option">
-
-        </FrameLayout>
 </RelativeLayout>

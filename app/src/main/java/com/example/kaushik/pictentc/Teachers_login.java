@@ -58,9 +58,12 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         if(FirebaseAuth.getInstance().getCurrentUser()==null){
             finish();
             startActivity(new Intent(this,MainActivity.class));
-        }
+        }/*else if(!(FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("teachers.pict@gmail.com"))){
+            finish();
+            FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(this,login.class));
 
-
+        }*/
     }
 
     @Override

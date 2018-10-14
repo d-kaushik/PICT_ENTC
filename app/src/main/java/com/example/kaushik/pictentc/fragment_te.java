@@ -48,12 +48,7 @@ public class fragment_te extends Fragment implements View.OnClickListener {
 
 
 
-        if(savedInstanceState==null)
-        {
 
-            FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-            ft.replace(R.id.fragment_container_option,new Fragment_Assignment()).commit();
-        }
         return view;
 
     }
@@ -68,7 +63,7 @@ public class fragment_te extends Fragment implements View.OnClickListener {
              {
                  checknull();
                  option="Assignments";
-                 Toast.makeText(getContext(),Year+Sub+option,Toast.LENGTH_LONG).show();
+                 Toast.makeText(getContext(),Year+" "+Sub+" "+option,Toast.LENGTH_SHORT).show();
                  Bundle bundle=new Bundle();
                  bundle.putString("Year",Year);
                  bundle.putString("Sub",Sub);
@@ -81,17 +76,13 @@ public class fragment_te extends Fragment implements View.OnClickListener {
 
 
 
-                 Fragment_Assignment assignment=new Fragment_Assignment();
-                 assignment.setArguments(bundle);
-                 FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-                 ft.replace(R.id.fragment_container_option,assignment).commit();
                  break;
              }
              case R.id.but_university_ppr:
              {
                  checknull();
                  option="University papers";
-                 Toast.makeText(getContext(),Year+Sub+option,Toast.LENGTH_LONG).show();
+                 Toast.makeText(getContext(),Year+" "+Sub+" "+option,Toast.LENGTH_SHORT).show();
 
                  Bundle bundle=new Bundle();
                  bundle.putString("Year",Year);
@@ -103,18 +94,15 @@ public class fragment_te extends Fragment implements View.OnClickListener {
                  intent.putExtra("option",option);
                  startActivity(intent);
 
-                 Fragment_University_ppr uni=new Fragment_University_ppr();
-                 uni.setArguments(bundle);
-
-                 FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-                 ft.replace(R.id.fragment_container_option,uni).commit();
                  break;
+
+
              }
              case R.id.but_unit_test_ppr:
              {
                  checknull();
                  option="Unit test Papers";
-                 Toast.makeText(getContext(),Year+Sub+option,Toast.LENGTH_LONG).show();
+                 Toast.makeText(getContext(),Year+" "+Sub+" "+option,Toast.LENGTH_SHORT).show();
 
                  Bundle bundle=new Bundle();
                  bundle.putString("Year",Year);
@@ -125,21 +113,17 @@ public class fragment_te extends Fragment implements View.OnClickListener {
                  intent.putExtra("Sub",Sub);
                  intent.putExtra("option",option);
                  startActivity(intent);
-
-                 Fragment_Unit_test_ppr unit=new Fragment_Unit_test_ppr();
-                 unit.setArguments(bundle);
-                 FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-                 ft.replace(R.id.fragment_container_option,unit).commit();
                  break;
+
              }
              case R.id.but_other:
              {
                  checknull();
                  option="Other";
-                 Toast.makeText(getContext(),Year+Sub+option,Toast.LENGTH_LONG).show();
+                 Toast.makeText(getContext(),Year+" "+Sub+" "+option,Toast.LENGTH_SHORT).show();
 
                  Bundle bundle=new Bundle();
-                 bundle.putString("Year",Year);
+                 bundle.putString("Year ",Year);
                  bundle.putString("Sub",Sub);
                  bundle.putString("option",option);
                  Intent intent=new Intent(getContext(),recycler.class);
@@ -147,12 +131,8 @@ public class fragment_te extends Fragment implements View.OnClickListener {
                  intent.putExtra("Sub",Sub);
                  intent.putExtra("option",option);
                  startActivity(intent);
+                    break;
 
-                 Fragment_Other other=new Fragment_Other();
-                 other.setArguments(bundle);
-                 FragmentTransaction ft=getChildFragmentManager().beginTransaction();
-                 ft.replace(R.id.fragment_container_option,other).commit();
-                 break;
              }
          }
 

@@ -214,6 +214,70 @@
             android:textSize="15dp"
             android:onClick="onClick"
             android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="25dp"
+            android:id="@+id/view5">
+        </View>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="15dp"
+            android:text="Contact us -"
+            android:textAllCaps="true"
+            android:gravity="left"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Kaushik Daspute - "
+            android:layout_marginTop="10dp"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/grey"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="kaushik.daspute98@gmail.com"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:textStyle="italic"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/grey" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="Gehan Chopade - "
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/grey"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:text="gehanchopade28@gmail.com"
+            android:textAllCaps="false"
+            android:gravity="left"
+            android:textStyle="italic"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/grey" />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
