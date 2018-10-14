@@ -1,5 +1,6 @@
 package com.example.kaushik.pictentc;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -98,7 +99,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             Intent intent=new Intent();
             intent.setType(Intent.ACTION_VIEW);
             intent.setData(link);
-            context.startActivity(intent);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setPackage("com.android.chrome");
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException ex) {
+                // Chrome browser presumably not installed so allow user to choose instead
+                intent.setPackage(null);
+                context.startActivity(intent);
+            }
+
             Toast.makeText(context,Uri.parse(file.getUrl()).toString(),Toast.LENGTH_LONG).show();
 
 
