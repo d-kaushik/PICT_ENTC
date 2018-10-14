@@ -100,7 +100,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             intent.setType(Intent.ACTION_VIEW);
             intent.setData(link);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.setPackage("com.android.chrome");
+            //intent.setPackage("com.android.chrome");
+            intent.setPackage("com.google.android.apps.docs");
+            //
             try {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException ex) {
