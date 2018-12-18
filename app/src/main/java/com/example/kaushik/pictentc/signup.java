@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -18,17 +16,24 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class signup extends AppCompatActivity implements View.OnClickListener {
 
     EditText fname,lname,otp,enroll_no,roll_no,email,mob,pass,con_pass;
     Button sign;
+    int count,t;
+    String enroll_chk;
+    ValueEventListener DBListener;
     String name;
     ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    DatabaseReference databaseReference,reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +90,12 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
             lname.requestFocus();
             return;
         }
+        if (chk_enroll()) {
+            enroll_no.setError("Enrollment Number exists");
+            enroll_no.requestFocus();
+            return;
+        }
+
         if (enroll_no.getText().toString().isEmpty()) {
             enroll_no.setError("Enter enrollment number");
             enroll_no.requestFocus();
@@ -144,12 +155,16 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
             return;
         }
 
-        if (!(pass.getText().toString().equals(con_pass.getText().toString())) && fname.getText().toString().length() != 0 && lname.getText().toString().length() != 0 && email.getText().toString().length() != 0 && enroll_no.getText().toString().length() != 0 && roll_no.getText().toString().length() != 0
-                && mob.getText().toString().length() != 0 && otp.getText().toString().length() != 0 && pass.getText().toString().length() != 0 && con_pass.getText().toString().length() != 0) {
-            Toast.makeText(this, "Password doesn't matched", Toast.LENGTH_SHORT).show();
+        if (!(passw.equals(con_passw))) {
+            con_pass.setError("Password doesn't match");
+            con_pass.requestFocus();
             return;
 
         }
+
+
+
+
         progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(mail,passw)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -162,7 +177,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                                     mail,
                                     phone,enroll);
                             FirebaseDatabase.getInstance().getReference("User")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    .child(user.enroll)//FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
@@ -189,104 +204,29 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
                     }
                 });
     }
+    public boolean chk_enroll(){
+        String enroll=enroll_no.getText().toString().trim();
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        reference=databaseReference.child("Users").child(enroll);
+        ValueEventListener eventListener=new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()) {
+                    t=0;
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
 
-    /*public void click(View view)
-    {
-        if(check())
-        {
-            Intent intent=new Intent(this,login.class);
-            startActivity(intent);
-        }
-    }
-    private boolean check() {
-        int k = 0,y=1,z=1,g=1,u=1;
-
-        if (fname.getText().toString().isEmpty()) {
-            fname.setError("Enter first name");
-            k++;
-        }
-        if (lname.getText().toString().isEmpty()) {
-            lname.setError("Enter last name");
-            k++;
-        }
-        if (otp.getText().toString().isEmpty()) {
-            otp.setError("Enter OTP");
-            k++;
-        }
-        if (enroll_no.getText().toString().isEmpty()) {
-            enroll_no.setError("Enter enrollment number");
-            k++;
-        }
-        if(enroll_no.getText().toString().startsWith("E2K"))
-        {
-            g=0;
-        }
-        if(g!=0 && enroll_no.getText().toString().length()!=0)
-        {
-            enroll_no.setError("Enter VALID enrollment number");
-        }
-        if (roll_no.getText().toString().isEmpty()) {
-            roll_no.setError("Enter roll number");
-            k++;
-        }
-        if(roll_no.getText().toString().length()>=4 && roll_no.getText().toString().length()<6)
-        {
-            u=0;
-        }
-        if(u!=0 && roll_no.getText().toString().length()!=0)
-        {
-            roll_no.setText("Enter VALID roll number");
-        }
-        if (email.getText().toString().isEmpty()) {
-            email.setError("Enter E-mail address");
-            k++;
-        }
-        if(email.getText().toString().endsWith(".com")&& email.getText().toString().length()!=0)
-        {
-            z=0;
-        }
-        if(z!=0)
-        {
-            email.setError("Enter valid E-mail address");
-            k++;
-        }
-        if (mob.getText().toString().isEmpty()) {
-            mob.setError("Enter mobile number");
-            k++;
-        }
-        if((mob.getText().toString().length()<10 || mob.getText().toString().length()>10) && mob.getText().toString().length()!=0)
-        {
-            mob.setError("Enter the VALID mobile number");
-            k++;
-        }
-        if (pass.getText().toString().isEmpty()) {
-            pass.setError("Enter Password");
-            k++;
-        }
-        if (pass.getText().toString().length() != 0 && pass.getText().toString().length() < 7) {
-            pass.setError("Password should have minimum six characters or symbol or digit");
-            k++;
-        }
-        if (enroll_no.getText().toString().length() != 11) {
-            enroll_no.setError("Enter valid Enrollment number");
-            k++;
-        }
-        if(pass.getText().toString().equals(con_pass.getText().toString()))
-        {
-            y=0;
-        }
-        if (y!=0 && fname.getText().toString().length() != 0 && lname.getText().toString().length() != 0 && email.getText().toString().length() != 0 && enroll_no.getText().toString().length() != 0 && roll_no.getText().toString().length() != 0
-                && mob.getText().toString().length() != 0 && otp.getText().toString().length() != 0 && pass.getText().toString().length() != 0 && con_pass.getText().toString().length() != 0) {
-            Toast.makeText(this, "Password doesn't matched", Toast.LENGTH_SHORT).show();
-            k++;
-        }
-        if(k==0)
-        {
+            }
+        };
+        if(t==0){
             return true;
         }
-        else return false;
-    }*/
+        else{
+            return false;
+        }
 
-
+    }
 }

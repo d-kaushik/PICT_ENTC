@@ -73,7 +73,8 @@ public class Notice extends AppCompatActivity implements ImageAdapter.OnItemClic
 
     @Override
     public void onItemClick(int position) {
-        //Toast.makeText(this,"CLICK AT"+position,Toast.LENGTH_LONG).show();
+        //
+        // Toast.makeText(this,"CLICK AT"+position,Toast.LENGTH_LONG).show();
         Upload selectedItem=mUploads.get(position);
         String url=selectedItem.getImageUrl();
         String name=selectedItem.getName();
