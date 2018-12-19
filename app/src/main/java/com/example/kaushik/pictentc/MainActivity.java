@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
 
-        //else if(view.getId()==R.id.forgot_password);
-        //{
-            //Intent intent=new Intent(this,forgot_p.class);
-            //startActivity(intent);
-        //}
+        else if(view.getId()==R.id.forgot_password)
+        {
+            Intent intent=new Intent(this,forgot_p.class);
+            startActivity(intent);
+        }
 
 
     }
