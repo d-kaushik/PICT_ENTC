@@ -35,9 +35,9 @@
 
         <Spinner
             android:id="@+id/teacher_login_spinner_year"
-            android:layout_width="150dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="0dp"
             android:layout_marginTop="10dp"></Spinner>
 
     </LinearLayout>
@@ -63,9 +63,8 @@
 
         <Spinner
             android:id="@+id/teacher_login_spinner_subject"
-            android:layout_width="150dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="45dp"></Spinner>
 
     </LinearLayout>
@@ -92,9 +91,8 @@
 
         <Spinner
             android:id="@+id/teacher_login_spinner_type"
-            android:layout_width="150dp"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="100dp"></Spinner>
 
     </LinearLayout>
@@ -132,7 +130,7 @@
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
         android:background="@drawable/but_option"
-
+        android:textColor="@color/white"
         android:text="Select File" />
 
 
@@ -167,6 +165,7 @@
         android:layout_marginBottom="15dp"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"
+        android:textColor="@color/white"
         android:background="@drawable/but_option"
         android:layout_alignBottom="@id/view2"
         android:text="Upload" />
@@ -196,7 +195,7 @@
             android:gravity="center"
             android:text="upload notice"
             android:textAllCaps="true"
-            android:textColor="@color/red"
+            android:textColor="@color/dark_blue"
             android:textSize="15dp"
             android:onClick="onClick"
             android:textStyle="bold" />

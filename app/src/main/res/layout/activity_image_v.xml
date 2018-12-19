@@ -15,16 +15,20 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:id="@+id/im_v_text_notice_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="monospace"
             android:text="Name"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textColor="@color/red"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            app:fontFamily="serif-monospace" />
 
         <ImageView
             android:id="@+id/im_v_image_notice"

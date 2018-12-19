@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".splash_screen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,7 +40,7 @@
         <activity android:name=".recycler" />
         <activity
             android:name=".Teachers_login"
-            android:label="Teacher&apos;s Login" />
+            android:label="Teacher&apos;s Dashboard" />
         <activity
             android:name=".Notice"
             android:label="Notice"

@@ -23,6 +23,7 @@
                 android:layout_marginRight="70dp"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/but_option"
+                android:textColor="@color/white"
                 android:text="Select File" />
 
             <EditText
@@ -62,6 +63,7 @@
                 android:layout_marginLeft="70dp"
                 android:layout_marginRight="70dp"
                 android:layout_marginTop="20dp"
+                android:textColor="@color/white"
                 android:background="@drawable/but_option"
                 android:text="Upload File" />
 

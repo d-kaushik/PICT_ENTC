@@ -18,10 +18,11 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="135dp"
+            android:layout_height="135dp"
             android:layout_gravity="center"
-            android:background="@drawable/pictlogo" />
+            android:background="@drawable/pictlogopng" />
 
         <TextView
             android:id="@+id/txt_college_name"
@@ -30,7 +31,7 @@
             android:layout_gravity="center"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="PUNE INSTITUTE OF COMPUTER TECHNOLOGY"
             android:textAlignment="center"
             android:textColor="@color/white"
