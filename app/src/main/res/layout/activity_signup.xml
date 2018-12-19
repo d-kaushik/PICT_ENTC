@@ -60,8 +60,7 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:hint="Enrollment Number"
-                android:inputType="textShortMessage"
-                android:textAllCaps="true"
+                android:inputType="textCapCharacters"
                 android:maxLength="11" />
 
             <EditText
