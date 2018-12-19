@@ -39,7 +39,6 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
         fname=(EditText)findViewById(R.id.sign_fName);
         lname=(EditText)findViewById(R.id.sign_lname);
         sign=(Button)findViewById(R.id.sign_signup);
@@ -91,8 +90,9 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
             return;
         }
         if (chk_enroll()) {
-            enroll_no.setError("Enrollment Number exists");
+            Toast.makeText(getApplicationContext(),"USER already registered",Toast.LENGTH_LONG).show();
             enroll_no.requestFocus();
+            t=1;
             return;
         }
 
@@ -208,7 +208,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         String enroll=enroll_no.getText().toString().trim();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         reference=databaseReference.child("Users").child(enroll);
-        ValueEventListener eventListener=new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()) {
@@ -220,7 +220,7 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
             public void onCancelled(DatabaseError databaseError) {
 
             }
-        };
+        });
         if(t==0){
             return true;
         }
@@ -229,4 +229,5 @@ public class signup extends AppCompatActivity implements View.OnClickListener {
         }
 
     }
+
 }
