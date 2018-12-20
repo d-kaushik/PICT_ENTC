@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.kaushik.pictentc">
 
@@ -56,5 +56,5 @@
             android:parentActivityName=".Teachers_login" />
         <activity android:name=".image_v"></activity>
     </application>
-
+    <protected-broadcast android:name="com.motorola.motocare.INTENT_TRIGGER" />
 </manifest>
