@@ -210,7 +210,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     private void selectFile() {
         Intent intent = new Intent();
         //for pdf and ppt
-        intent.setType("application/*");
+        intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);//fetch files
         startActivityForResult(intent, 5);
 

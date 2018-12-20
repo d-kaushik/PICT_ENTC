@@ -112,14 +112,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             intent.setType(Intent.ACTION_VIEW);
             intent.setData(link);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            if(ext.equals("pdf")){
-                intent.setPackage("com.google.android.apps.docs");
-                ext.equals(null);
-            }
-            else{
-                intent.setPackage("com.android.chrome");
-                ext.equals(null);
-            }
+            intent.setPackage("com.google.android.apps.docs");
+            ext.equals(null);
+
 
             //
             try {
