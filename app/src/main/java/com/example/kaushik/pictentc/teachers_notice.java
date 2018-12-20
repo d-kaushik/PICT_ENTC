@@ -141,6 +141,9 @@ public class teachers_notice extends AppCompatActivity {
                                     taskSnapshot.getDownloadUrl().toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
+                            mImageUri=null;
+                            mEditTextFileName.setText(null);
+                            mImageView.setImageResource(0);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {

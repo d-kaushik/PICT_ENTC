@@ -1,9 +1,11 @@
 package com.example.kaushik.pictentc;
 
+import android.app.DownloadManager;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.ContextMenu;
@@ -20,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.DOWNLOAD_SERVICE;
+
 /**
  * Created by hp on 06-10-2018.
  */
@@ -27,6 +31,7 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     RecyclerView recyclerView;
+    String ext;
     Context context;
     List<file> mfiles;
     OnItemClickListener mListener;
@@ -62,7 +67,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         file file=mfiles.get(i);
         viewHolder.name_file.setText(file.getFileName());
 
-
     }
 
     @Override
@@ -94,14 +98,29 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             if (!url.startsWith("http://") && !url.startsWith("https://")){
                 url = "http://" + url;
             }
+            try{
+                ext=file.getExt();
+                ext=ext.trim();
+            }
+            catch (NullPointerException e){
+                ext="pdf";
+            }
+
             Uri link=Uri.parse(url);
 
             Intent intent=new Intent();
             intent.setType(Intent.ACTION_VIEW);
             intent.setData(link);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            //intent.setPackage("com.android.chrome");
-            intent.setPackage("com.google.android.apps.docs");
+            if(ext.equals("pdf")){
+                intent.setPackage("com.google.android.apps.docs");
+                ext.equals(null);
+            }
+            else{
+                intent.setPackage("com.android.chrome");
+                ext.equals(null);
+            }
+
             //
             try {
                 context.startActivity(intent);
@@ -110,11 +129,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                 intent.setPackage(null);
                 context.startActivity(intent);
             }
-
-            //Toast.makeText(context,Uri.parse(file.getUrl()).toString(),Toast.LENGTH_LONG).show();
-
-
-
         }
         @Override
         public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {

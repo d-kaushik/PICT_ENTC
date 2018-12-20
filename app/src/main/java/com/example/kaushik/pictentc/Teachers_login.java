@@ -4,6 +4,7 @@ import android.*;
 import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -44,7 +46,8 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     Spinner spinner_sub,spinner_year,spinner_type;
     //ProgressBar progressBar;
     Button button_upload, button_select;
-    EditText file;
+    EditText mfile;
+    String ext;
     TextView status;
     FirebaseStorage storage;
     FirebaseDatabase database;
@@ -60,12 +63,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         if(FirebaseAuth.getInstance().getCurrentUser()==null){
             finish();
             startActivity(new Intent(this,MainActivity.class));
-        }/*else if(!(FirebaseAuth.getInstance().getCurrentUser().getEmail().equals("teachers.pict@gmail.com"))){
-            finish();
-            FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(this,login.class));
-
-        }*/
+        }
     }
 
     @Override
@@ -81,7 +79,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         status = (TextView) findViewById(R.id.tl_stat);
         storage = FirebaseStorage.getInstance();//returns obj of firebase storage
         database = FirebaseDatabase.getInstance();
-        file=(EditText)findViewById(R.id.tl_file_name);
+        mfile=(EditText)findViewById(R.id.tl_file_name);
 
 
 
@@ -127,10 +125,10 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         spinner_type.setOnItemSelectedListener(this);
     }
 
-    private void upLoadFile(Uri pdfUri) {
-        if(file.getText().toString().isEmpty()){
-            file.setError("Enter File Name");
-            file.requestFocus();
+    private void upLoadFile(final Uri pdfUri) {
+        if(mfile.getText().toString().isEmpty()){
+            mfile.setError("Enter File Name");
+            mfile.requestFocus();
             return;
         }
         progressDialog = new ProgressDialog(this);
@@ -141,8 +139,9 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         year=spinner_year.getSelectedItem().toString();
         sub=spinner_sub.getSelectedItem().toString();
         type=spinner_type.getSelectedItem().toString();
-        file_name=file.getText().toString().trim();
-        fileName = file_name + ".pdf";
+        file_name=mfile.getText().toString().trim();
+        fileName = file_name +"."+getFileExtension(pdfUri);
+        ext=getFileExtension(pdfUri);
         fileName1= file_name+"";
 
         final String time=System.currentTimeMillis()+"";
@@ -156,12 +155,15 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                         file file=new file();
                         file.setFileName(fileName1);
                         file.setUrl(url);
+                        file.setExt(ext);
                         DatabaseReference databaseReference = database.getReference();
                         databaseReference.child("Uploads").child(year).child(sub).child(type).child(time).setValue(file).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "File Uploaded", Toast.LENGTH_LONG).show();
+                                    mfile.setText(null);
+                                    uri_null();
                                     progressDialog.dismiss();
                                 } else {
                                     Toast.makeText(getApplicationContext(), "File Not Uploaded", Toast.LENGTH_LONG).show();
@@ -192,7 +194,9 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
 
 
     }
-
+    public void uri_null(){
+        pdfUri=null;
+    }
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -206,10 +210,15 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     private void selectFile() {
         Intent intent = new Intent();
         //for pdf and ppt
-        intent.setType("application/pdf");
+        intent.setType("application/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);//fetch files
         startActivityForResult(intent, 5);
 
+    }
+    private String getFileExtension(Uri uri) {
+        ContentResolver cR = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
     @Override
@@ -217,7 +226,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         //user has selected the file or not checking
         if (requestCode == 5 && resultCode == RESULT_OK && data != null) {
             pdfUri = data.getData();//URI of selected file
-            Toast.makeText(getApplicationContext(),"File Selected:" + data.getData().getLastPathSegment(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),"File Selected:" + data.getData().getLastPathSegment(),Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(getApplicationContext(), "Please Select a File", Toast.LENGTH_LONG).show();

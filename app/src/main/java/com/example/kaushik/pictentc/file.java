@@ -5,7 +5,7 @@ package com.example.kaushik.pictentc;
  */
 
 public class file {
-    String fileName,url,mkey;
+    private String fileName,url,mkey,ext;
 
     public String getMkey() {
         return mkey;
@@ -30,4 +30,13 @@ public class file {
     public void setUrl(String url) {
         this.url = url;
     }
+
+    public String getExt() {
+        return ext;
+    }
+
+    public void setExt(String ext) {
+        this.ext = ext;
+    }
+
 }
