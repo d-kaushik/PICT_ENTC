@@ -48,12 +48,13 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
     Button button_upload, button_select;
     EditText mfile;
     String ext;
+    static int i=0;
     TextView status;
     FirebaseStorage storage;
     FirebaseDatabase database;
     Uri pdfUri;//URL for local storage
     ProgressDialog progressDialog;
-    String year,sub,type,file_name,fileName1,fileName;
+    String year,sub,type,file_name,fileName1,fileName,notify;
     StorageTask mUploadTask;
 
 
@@ -156,12 +157,16 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
                         file.setFileName(fileName1);
                         file.setUrl(url);
                         file.setExt(ext);
-                        DatabaseReference databaseReference = database.getReference();
+                        final DatabaseReference databaseReference = database.getReference();
                         databaseReference.child("Uploads").child(year).child(sub).child(type).child(time).setValue(file).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(getApplicationContext(), "File Uploaded", Toast.LENGTH_LONG).show();
+                                    notify=year+" "+sub+" "+type+" "+fileName1;
+                                    mNotify mNotify=new mNotify();
+                                    mNotify.setNote(notify);
+                                    databaseReference.child("Notification").child(notify).setValue(0);
                                     mfile.setText(null);
                                     uri_null();
                                     progressDialog.dismiss();
@@ -226,7 +231,7 @@ public class Teachers_login extends AppCompatActivity implements AdapterView.OnI
         //user has selected the file or not checking
         if (requestCode == 5 && resultCode == RESULT_OK && data != null) {
             pdfUri = data.getData();//URI of selected file
-            //Toast.makeText(getApplicationContext(),"File Selected:" + data.getData().getLastPathSegment(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"File Selected",Toast.LENGTH_SHORT).show();
 
         } else {
             Toast.makeText(getApplicationContext(), "Please Select a File", Toast.LENGTH_LONG).show();

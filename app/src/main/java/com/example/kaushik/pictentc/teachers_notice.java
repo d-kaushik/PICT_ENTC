@@ -48,7 +48,7 @@ public class teachers_notice extends AppCompatActivity {
     Uri mImageUri;
 
     private StorageReference mStorageRef;
-    private DatabaseReference mDatabaseRef;
+    private DatabaseReference mDatabaseRef,reference;
 
     private StorageTask mUploadTask;
 
@@ -66,6 +66,7 @@ public class teachers_notice extends AppCompatActivity {
 
         mStorageRef = FirebaseStorage.getInstance().getReference("Notice");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("Notice");
+        reference=FirebaseDatabase.getInstance().getReference();
 
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,6 +141,7 @@ public class teachers_notice extends AppCompatActivity {
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
                                     taskSnapshot.getDownloadUrl().toString());
                             String uploadId = mDatabaseRef.push().getKey();
+                            reference.child("Notice_notif").child(mEditTextFileName.getText().toString().trim()).setValue(0);
                             mDatabaseRef.child(uploadId).setValue(upload);
                             mImageUri=null;
                             mEditTextFileName.setText(null);

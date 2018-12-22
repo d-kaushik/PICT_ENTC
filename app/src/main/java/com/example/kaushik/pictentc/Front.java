@@ -1,28 +1,49 @@
 package com.example.kaushik.pictentc;
 
 import android.app.ActionBar;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Front extends AppCompatActivity {
 
     private DrawerLayout dl;
     path path1=new path();
-
+    int i,val;
+    String val1;
+    FirebaseDatabase firebaseDatabase;
     private ActionBarDrawerToggle abdt;
-    String Year;
+    NotificationManagerCompat notificationManagerCompat;
+
+    String name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,11 +59,6 @@ public class Front extends AppCompatActivity {
         abdt.syncState();
 
         final NavigationView nav_view=(NavigationView)findViewById(R.id.nav_view);
-
-        //ActionBar bar=getActionBar();
-        //bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#131337")));
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -69,6 +85,105 @@ public class Front extends AppCompatActivity {
                 return true;
             }
         });
+        final SharedPreferences pref = getApplicationContext().getSharedPreferences("MyPref",0);
+        final SharedPreferences.Editor editor=pref.edit();
+        final List<file> notifies;
+        notifies=new ArrayList<>();
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        final DatabaseReference reference=firebaseDatabase.getReference().child("Notification");
+        final DatabaseReference reference1=firebaseDatabase.getReference().child("Notice_notif");
+        reference.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if(dataSnapshot.exists()){
+                    name=dataSnapshot.getKey();
+                    val1=dataSnapshot.getValue().toString();
+                    val=Integer.parseInt(val1);
+                    if(!(pref.contains(name))){
+                        editor.putInt(name,val);
+                        editor.commit();
+                    }
+                    if(pref.getInt(name,1)==0){
+                        sendOnchannel1(name);
+                        editor.remove(name);
+                        editor.putInt(name,1);
+                        editor.commit();
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                if(dataSnapshot.exists()){
+                    for(DataSnapshot postsnap:dataSnapshot.getChildren()){
+                        name=postsnap.getKey();
+                        sendOnchannel1(name);
+                    }
+                }
+                Toast.makeText(getApplicationContext(),"changed",Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        reference1.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if(dataSnapshot.exists()){
+                    name=dataSnapshot.getKey();
+                    val1=dataSnapshot.getValue().toString();
+                    val=Integer.parseInt(val1);
+                    if(!(pref.contains(name))){
+                        editor.putInt(name,val);
+                        editor.commit();
+                    }
+                    if(pref.getInt(name,1)==0){
+                        sendOnchannel2(name);
+                        editor.remove(name);
+                        editor.putInt(name,1);
+                        editor.commit();
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
 
 
 
@@ -105,7 +220,50 @@ public class Front extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
+    public void sendOnchannel2(String name){
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        String titl="Notice:";
+        String msg=name;
+        Intent intent=new Intent(this,Notice.class);
+        PendingIntent contentIntent=PendingIntent.getActivity(this,0,intent,0);
+        Notification notification = new NotificationCompat.Builder(this,App.Channel_notice_id)
+                .setSmallIcon(R.drawable.student)
+                .setContentTitle(titl)
+                .setContentText(msg)
+                .setContentIntent(contentIntent)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .build();
+        notificationManagerCompat.notify(i,notification);
 
+        if(i==100){
+            i=0;
+        }
+        else{
+            i++;
+        }
+    }
+    public void sendOnchannel1(String name){
+        notificationManagerCompat = NotificationManagerCompat.from(this);
+        String titl="New file added";
+        String msg=name+" uploaded";
+        Intent intent=new Intent(this,Front.class);
+        PendingIntent contentIntent=PendingIntent.getActivity(this,0,intent,0);
+        Notification notification = new NotificationCompat.Builder(this,App.Channel_file_id)
+                .setSmallIcon(R.drawable.student)
+                .setContentTitle(titl)
+                .setContentText(msg)
+                .setContentIntent(contentIntent)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .build();
+        notificationManagerCompat.notify(i,notification);
+
+        if(i==100){
+            i=0;
+        }
+        else{
+            i++;
+        }
+    }
     @Override
     protected void onStart() {
         super.onStart();
@@ -118,5 +276,7 @@ public class Front extends AppCompatActivity {
             startActivity(new Intent(this,verify.class));
 
         }
+
+
     }
 }
